@@ -35,6 +35,7 @@
 		"embers_and_icicles.backport.mixins.json"
 	],
 	"depends": {
-		"fabric-api": "*"
+		"fabricloader": ">=${fabric_loader_version}",
+		"fabric-api": ">=0.19.5"
 	}
 }

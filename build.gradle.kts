@@ -23,6 +23,7 @@ tasks.named<ProcessResources>("processResources") {
 		this["mod_name"] = prop("mod.name")
 		this["mod_description"] = prop("mod.description")
 		this["mod_license"] = prop("mod.license")
+		this["fabric_loader_version"] = prop("deps.fabric_loader")
 		this["mixin_java"] = when {
 			stonecutter.eval(mcVersion, ">=26") -> "JAVA_25"
 			stonecutter.eval(mcVersion, ">=1.21") -> "JAVA_21"
@@ -277,18 +278,11 @@ if (fabric) {
 }
 
 tasks {
-
 	register<Copy>("buildAndCollect") {
 		group = "build"
 		from(loomx.modJar.map { it.archiveFile })
 		into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
 		dependsOn("build")
-	}
-
-	if (stonecutter.eval(mcVersion, "<26.3")) {
-		processResources {
-			exclude("**/recipe/brewing*")
-		}
 	}
 }
 

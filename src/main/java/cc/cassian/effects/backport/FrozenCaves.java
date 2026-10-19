@@ -48,6 +48,7 @@ public final class FrozenCaves {
 				new TabInsertion(CreativeModeTabs.NATURAL_BLOCKS, Items.POINTED_DRIPSTONE, ModItems.ICICLE),
 				new TabInsertion(CreativeModeTabs.NATURAL_BLOCKS, Items.AMETHYST_CLUSTER, ModItems.ICE_CRYSTAL),
 				new TabInsertion(CreativeModeTabs.INGREDIENTS, Items.SNOWBALL, ModItems.ICE_BALL),
+				new TabInsertion(CreativeModeTabs.COMBAT, Items.SNOWBALL, ModItems.ICE_BALL),
 				new TabInsertion(CreativeModeTabs.SPAWN_EGGS, Items.DROWNED_SPAWN_EGG, ModItems.FROSTBITE_SPAWN_EGG)
 		);
 	}

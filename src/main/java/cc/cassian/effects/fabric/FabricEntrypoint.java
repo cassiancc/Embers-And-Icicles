@@ -81,6 +81,26 @@ public class FabricEntrypoint implements ModInitializer {
 					// Output potion.
 					ModPotions.FREEZING
 			);
+			builder.addStartMix(
+					// Ingredient
+					Items.FIRE_CHARGE,
+					// Output potion.
+					ModPotions.BURNING
+			);
+			builder.addMix(
+					ModPotions.FREEZING,
+					// Ingredient
+					Items.REDSTONE,
+					// Output potion.
+					ModPotions.LONG_FREEZING
+			);
+			builder.addMix(
+					ModPotions.BURNING,
+					// Ingredient
+					Items.REDSTONE,
+					// Output potion.
+					ModPotions.LONG_BURNING
+			);
 		});
 		*///?}
 		//? if =1.21.1 {
@@ -90,6 +110,26 @@ public class FabricEntrypoint implements ModInitializer {
 					ModItems.ICE_BALL,
 					// Output potion.
 					ModPotions.FREEZING
+			);
+			builder.addStartMix(
+					// Ingredient
+					Items.FIRE_CHARGE,
+					// Output potion.
+					ModPotions.BURNING
+			);
+			builder.addMix(
+					ModPotions.FREEZING,
+					// Ingredient
+					Items.REDSTONE,
+					// Output potion.
+					ModPotions.LONG_FREEZING
+			);
+			builder.addMix(
+					ModPotions.BURNING,
+					// Ingredient
+					Items.REDSTONE,
+					// Output potion.
+					ModPotions.LONG_BURNING
 			);
 		});
 		*///?}
@@ -123,11 +163,6 @@ public class FabricEntrypoint implements ModInitializer {
 		});
 
 		//? if <26.4 {
-		//~ if <26 'CreativeModeTabEvents.modifyOutputEvent'->'ItemGroupEvents.modifyEntriesEvent'
-		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(event -> {
-			//~ if <26 'insertAfter'->'addAfter'
-			event.insertAfter(Items.SNOWBALL, ModItems.ICE_BALL);
-		});
 		registerFrozenCaves();
 		//?}
 	}

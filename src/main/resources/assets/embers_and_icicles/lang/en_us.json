@@ -12,6 +12,7 @@
   "item.minecraft.tipped_arrow.effect.freezing": "Arrow of Freezing",
   "subtitles.event.mob_effect.freezing": "Starting to freeze",
   "entity.embers_and_icicles.ice_ball": "Ice Ball",
+  "lore.embers_and_icicles.ice_ball": "An item that can be thrown to inflict Freezing. Dropped by Frostbites.",
   "item.embers_and_icicles.ice_ball": "Ice Ball",
   "item.embers_and_icicles.ice_cube": "Ice Cube",
   "subtitles.entity.ice_ball.break": "Ice Ball hits",
@@ -19,8 +20,11 @@
   "biome.embers_and_icicles.ice_caves": "Ice Caves",
   "block.embers_and_icicles.brittle_ice": "Brittle Ice",
   "block.embers_and_icicles.ice_crystal": "Ice Crystal",
+  "lore.embers_and_icicles.ice_crystal": "A light-emitting block found in Ice Caves.",
   "block.embers_and_icicles.icicle": "Icicle",
+  "lore.embers_and_icicles.icicle": "A block that is sharp, and will deal damage if you fall on it (or it falls on you). Will fall when the light level increases.",
   "entity.embers_and_icicles.frostbite": "Frostbite",
+  "entity.embers_and_icicles.frostbite.description": "An undead hostile mob found in Ice Caves that inflicts Freezing on hit.",
   "item.embers_and_icicles.frostbite_spawn_egg": "Frostbite Spawn Egg",
   "subtitles.block.brittle_ice.crack": "Brittle Ice cracks",
   "subtitles.block.generic.fall": "Something falls on a block",
@@ -31,5 +35,7 @@
   "subtitles.entity.frostbite.death": "Frostbite dies",
   "subtitles.entity.frostbite.hurt": "Frostbite is hurt",
   "subtitles.entity.husk.converted_to_zombie": "Husk converts to Zombie",
-  "subtitles.entity.zombie.converted_to_frostbite": "Zombie converts to Frostbite"
+  "subtitles.entity.zombie.converted_to_frostbite": "Zombie converts to Frostbite",
+  "tag.item.embers_and_icicles.frostbite_preferred_weapons": "Frostbite Preferred Weapons",
+  "tag.item.embers_and_icicles.knocks_back_players_even_with_zero_damage": "Knocks Back Players Even With Zero Damage"
 }

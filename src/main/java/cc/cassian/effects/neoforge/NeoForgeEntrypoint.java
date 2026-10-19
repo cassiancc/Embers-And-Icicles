@@ -65,10 +65,6 @@ public class NeoForgeEntrypoint {
 
 	@SubscribeEvent
 	public static void addToCreativeTabs(BuildCreativeModeTabContentsEvent event) {
-		if (event.getTabKey() == CreativeModeTabs.COMBAT) {
-			insertAfter(event, Items.SNOWBALL, ModItems.ICE_BALL);
-		}
-
 		for (FrozenCaves.TabInsertion insertion : FrozenCaves.tabInsertions()) {
 			if (event.getTabKey() == insertion.tab()) {
 				insertAfter(event, insertion.after(), insertion.item());

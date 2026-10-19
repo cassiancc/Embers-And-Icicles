@@ -3,6 +3,7 @@
 package cc.cassian.effects.fabric.datagen.providers;
 
 import cc.cassian.effects.registry.ModItems;
+import cc.cassian.effects.registry.ModPotions;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancements.Advancement;
@@ -39,6 +40,42 @@ public class EmbersRecipeProvider extends FabricRecipeProvider {
 			/*@Override
 			public void buildRecipes(RecipeOutput output) {
 		*///?}
+
+			//? if >=26.3 {
+			new  net.fabricmc.fabric.api.datagen.v1.provider.FabricBrewingProvider(output) {
+				@Override
+				protected void buildMixes() {
+					//? if <26.4 {
+					buildStartMix(
+							// Ingredient
+							ModItems.ICE_BALL,
+							// Output potion.
+							ModPotions.FREEZING
+					);
+					buildMix(
+							ModPotions.FREEZING,
+							// Ingredient
+							Items.REDSTONE,
+							// Output potion.
+							ModPotions.LONG_FREEZING
+					);
+					//?}
+					buildStartMix(
+							// Ingredient
+							Items.FIRE_CHARGE,
+							// Output potion.
+							ModPotions.BURNING
+					);
+					buildMix(
+							ModPotions.BURNING,
+							// Ingredient
+							Items.REDSTONE,
+							// Output potion.
+							ModPotions.LONG_BURNING
+					);
+				}
+			}.buildRecipes();
+			//?}
 
 				twoByTwoPacker(
 						//? if <26
