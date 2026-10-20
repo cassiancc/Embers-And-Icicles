@@ -5,6 +5,7 @@ import cc.cassian.effects.EmbersAndIcicles;
 import cc.cassian.effects.registry.ModEffects;
 import cc.cassian.effects.registry.ModItems;
 import cc.cassian.effects.registry.ModPotions;
+import cc.cassian.effects.util.BrewingMix;
 import net.fabricmc.api.ModInitializer;
 //~ if <26 'creativetab.v1.CreativeModeTabEvents'->'itemgroup.v1.ItemGroupEvents'
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
@@ -75,62 +76,24 @@ public class FabricEntrypoint implements ModInitializer {
 		//?}
 		//? if <26.3 && >26 {
 		/*FabricPotionBrewingBuilder.BUILD.register(builder -> {
-			builder.addStartMix(
-					// Ingredient
-					ModItems.ICE_BALL,
-					// Output potion.
-					ModPotions.FREEZING
-			);
-			builder.addStartMix(
-					// Ingredient
-					Items.FIRE_CHARGE,
-					// Output potion.
-					ModPotions.BURNING
-			);
-			builder.addMix(
-					ModPotions.FREEZING,
-					// Ingredient
-					Items.REDSTONE,
-					// Output potion.
-					ModPotions.LONG_FREEZING
-			);
-			builder.addMix(
-					ModPotions.BURNING,
-					// Ingredient
-					Items.REDSTONE,
-					// Output potion.
-					ModPotions.LONG_BURNING
-			);
+			for (BrewingMix addMix : BrewingMix.addMixes()) {
+				if (addMix.base().isEmpty()) {
+					builder.addStartMix(addMix.reagent(), addMix.output());
+				} else {
+					builder.addMix(addMix.base().get(), addMix.reagent(), addMix.output());
+				}
+			}
 		});
 		*///?}
 		//? if =1.21.1 {
 		/*FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
-			builder.addStartMix(
-					// Ingredient
-					ModItems.ICE_BALL,
-					// Output potion.
-					ModPotions.FREEZING
-			);
-			builder.addStartMix(
-					// Ingredient
-					Items.FIRE_CHARGE,
-					// Output potion.
-					ModPotions.BURNING
-			);
-			builder.addMix(
-					ModPotions.FREEZING,
-					// Ingredient
-					Items.REDSTONE,
-					// Output potion.
-					ModPotions.LONG_FREEZING
-			);
-			builder.addMix(
-					ModPotions.BURNING,
-					// Ingredient
-					Items.REDSTONE,
-					// Output potion.
-					ModPotions.LONG_BURNING
-			);
+			for (BrewingMix addMix : BrewingMix.addMixes()) {
+				if (addMix.base().isEmpty()) {
+					builder.addStartMix(addMix.reagent(), addMix.output());
+				} else {
+					builder.addMix(addMix.base().get(), addMix.reagent(), addMix.output());
+				}
+			}
 		});
 		*///?}
 

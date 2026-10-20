@@ -39,7 +39,7 @@ public final class FrozenCaves {
 			biome("snowy_slopes"), 10
 	);
 
-	public record TabInsertion(ResourceKey<CreativeModeTab> tab, Item after, Item item) {
+	public record TabInsertion(ResourceKey<CreativeModeTab> tab, Item after, Item... item) {
 	}
 
 	public static List<TabInsertion> tabInsertions() {
@@ -47,6 +47,7 @@ public final class FrozenCaves {
 				new TabInsertion(CreativeModeTabs.NATURAL_BLOCKS, Items.BLUE_ICE, ModItems.BRITTLE_ICE),
 				new TabInsertion(CreativeModeTabs.NATURAL_BLOCKS, Items.POINTED_DRIPSTONE, ModItems.ICICLE),
 				new TabInsertion(CreativeModeTabs.NATURAL_BLOCKS, Items.AMETHYST_CLUSTER, ModItems.ICE_CRYSTAL),
+				new TabInsertion(CreativeModeTabs.BUILDING_BLOCKS, Items.PACKED_ICE, ModItems.PACKED_ICE_BRICKS, ModItems.PACKED_ICE_BRICK_STAIRS, ModItems.PACKED_ICE_BRICK_SLAB, ModItems.PACKED_ICE_BRICK_WALL, ModItems.CHISELED_PACKED_ICE),
 				new TabInsertion(CreativeModeTabs.INGREDIENTS, Items.SNOWBALL, ModItems.ICE_BALL),
 				new TabInsertion(CreativeModeTabs.COMBAT, Items.SNOWBALL, ModItems.ICE_BALL),
 				new TabInsertion(CreativeModeTabs.SPAWN_EGGS, Items.DROWNED_SPAWN_EGG, ModItems.FROSTBITE_SPAWN_EGG)

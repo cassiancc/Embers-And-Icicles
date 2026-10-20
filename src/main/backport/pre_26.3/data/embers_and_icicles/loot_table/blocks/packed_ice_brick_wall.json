@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "embers_and_icicles:packed_ice_brick_wall"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "embers_and_icicles:blocks/packed_ice_brick_wall"
+}

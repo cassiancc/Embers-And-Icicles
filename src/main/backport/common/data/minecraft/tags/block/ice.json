@@ -1,5 +1,11 @@
 {
   "values": [
-    "embers_and_icicles:brittle_ice"
+    "minecraft:ice",
+    "minecraft:packed_ice",
+    "embers_and_icicles:packed_ice_bricks",
+    "embers_and_icicles:chiseled_packed_ice",
+    "minecraft:blue_ice",
+    "embers_and_icicles:brittle_ice",
+    "minecraft:frosted_ice"
   ]
 }

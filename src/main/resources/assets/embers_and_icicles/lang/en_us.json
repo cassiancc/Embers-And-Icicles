@@ -37,5 +37,10 @@
   "subtitles.entity.husk.converted_to_zombie": "Husk converts to Zombie",
   "subtitles.entity.zombie.converted_to_frostbite": "Zombie converts to Frostbite",
   "tag.item.embers_and_icicles.frostbite_preferred_weapons": "Frostbite Preferred Weapons",
-  "tag.item.embers_and_icicles.knocks_back_players_even_with_zero_damage": "Knocks Back Players Even With Zero Damage"
+  "tag.item.embers_and_icicles.knocks_back_players_even_with_zero_damage": "Knocks Back Players Even With Zero Damage",
+  "block.embers_and_icicles.chiseled_packed_ice": "Chiseled Packed Ice",
+  "block.embers_and_icicles.packed_ice_brick_slab": "Packed Ice Brick Slab",
+  "block.embers_and_icicles.packed_ice_brick_stairs": "Packed Ice Brick Stairs",
+  "block.embers_and_icicles.packed_ice_brick_wall": "Packed Ice Brick Wall",
+  "block.embers_and_icicles.packed_ice_bricks": "Packed Ice Bricks"
 }

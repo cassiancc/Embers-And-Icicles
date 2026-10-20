@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "embers_and_icicles:block/packed_ice_bricks"
+  }
+}

@@ -4,6 +4,7 @@ package cc.cassian.effects.fabric.datagen.providers;
 
 import cc.cassian.effects.registry.ModItems;
 import cc.cassian.effects.registry.ModPotions;
+import cc.cassian.effects.util.BrewingMix;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancements.Advancement;
@@ -11,6 +12,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 
 import java.util.concurrent.CompletableFuture;
@@ -45,34 +47,13 @@ public class EmbersRecipeProvider extends FabricRecipeProvider {
 			new  net.fabricmc.fabric.api.datagen.v1.provider.FabricBrewingProvider(output) {
 				@Override
 				protected void buildMixes() {
-					//? if <26.4 {
-					buildStartMix(
-							// Ingredient
-							ModItems.ICE_BALL,
-							// Output potion.
-							ModPotions.FREEZING
-					);
-					buildMix(
-							ModPotions.FREEZING,
-							// Ingredient
-							Items.REDSTONE,
-							// Output potion.
-							ModPotions.LONG_FREEZING
-					);
-					//?}
-					buildStartMix(
-							// Ingredient
-							Items.FIRE_CHARGE,
-							// Output potion.
-							ModPotions.BURNING
-					);
-					buildMix(
-							ModPotions.BURNING,
-							// Ingredient
-							Items.REDSTONE,
-							// Output potion.
-							ModPotions.LONG_BURNING
-					);
+					for (BrewingMix addMix : BrewingMix.addMixes()) {
+						if (addMix.base().isEmpty()) {
+							buildStartMix(addMix.reagent(), addMix.output());
+						} else {
+							buildMix(addMix.base().get(), addMix.reagent(), addMix.output());
+						}
+					}
 				}
 			}.buildRecipes();
 			//?}
@@ -81,6 +62,50 @@ public class EmbersRecipeProvider extends FabricRecipeProvider {
 						//? if <26
 						//output,
 						RecipeCategory.MISC, Items.ICE, ModItems.ICE_BALL);
+
+				//? if <26.4 {
+				twoByTwoPacker(
+						//? if <26
+						//output,
+						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICKS, Items.PACKED_ICE);
+				slab(
+					//? if <26
+					//output,
+					RecipeCategory.MISC, ModItems.PACKED_ICE_BRICK_SLAB, ModItems.PACKED_ICE_BRICKS);
+				stairBuilder(ModItems.PACKED_ICE_BRICK_STAIRS, Ingredient.of(ModItems.PACKED_ICE_BRICKS)).unlockedBy(getHasName(ModItems.PACKED_ICE_BRICKS), has(ModItems.PACKED_ICE_BRICKS)).save(output);
+				chiseled(
+						//? if <26
+						//output,
+						RecipeCategory.MISC, ModItems.CHISELED_PACKED_ICE, ModItems.PACKED_ICE_BRICK_SLAB);
+				stonecutterResultFromBase(
+						//? if <26
+						//output,
+						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICKS, Items.PACKED_ICE);
+				stonecutterResultFromBase(
+						//? if <26
+						//output,
+						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICK_SLAB, ModItems.PACKED_ICE_BRICKS, 2);
+				stonecutterResultFromBase(
+						//? if <26
+						//output,
+						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICK_SLAB, Items.PACKED_ICE, 2);
+				stonecutterResultFromBase(
+						//? if <26
+						//output,
+						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICK_STAIRS, ModItems.PACKED_ICE_BRICKS);
+				stonecutterResultFromBase(
+						//? if <26
+						//output,
+						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICK_STAIRS, Items.PACKED_ICE);
+				stonecutterResultFromBase(
+						//? if <26
+						//output,
+						RecipeCategory.MISC, ModItems.CHISELED_PACKED_ICE, ModItems.PACKED_ICE_BRICKS);
+				stonecutterResultFromBase(
+						//? if <26
+						//output,
+						RecipeCategory.MISC, ModItems.CHISELED_PACKED_ICE, Items.PACKED_ICE);
+			//?}
 				//? if >26 {
 			}
 		};

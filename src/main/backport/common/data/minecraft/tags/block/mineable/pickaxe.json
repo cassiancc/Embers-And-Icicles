@@ -1,6 +1,11 @@
 {
   "values": [
     "embers_and_icicles:ice_crystal",
-    "embers_and_icicles:brittle_ice"
+    "embers_and_icicles:brittle_ice",
+    "embers_and_icicles:packed_ice_bricks",
+    "embers_and_icicles:packed_ice_brick_slab",
+    "embers_and_icicles:packed_ice_brick_stairs",
+    "embers_and_icicles:packed_ice_brick_wall",
+    "embers_and_icicles:chiseled_packed_ice"
   ]
 }

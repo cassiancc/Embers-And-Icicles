@@ -4,6 +4,7 @@
 import cc.cassian.effects.EmbersAndIcicles;
 import cc.cassian.effects.registry.ModItems;
 import cc.cassian.effects.registry.ModPotions;
+import cc.cassian.effects.util.BrewingMix;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -14,21 +15,19 @@ import cc.cassian.effects.entity.Frostbite;
 import cc.cassian.effects.registry.ModEntityTypes;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 //?}
 //? if <26.3 {
-/^import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
-^///?}
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+//?}
 //? if <26 {
-/^import net.neoforged.neoforge.event.village.WandererTradesEvent;
-^///?}
+import net.neoforged.neoforge.event.village.WandererTradesEvent;
+//?}
 
 @EventBusSubscriber
 public class NeoForgeEntrypoint {
@@ -40,16 +39,17 @@ public class NeoForgeEntrypoint {
 	}
 
 	//? if <26.3 {
-	/^@SubscribeEvent
+	@SubscribeEvent
 	public static void register(RegisterBrewingRecipesEvent event) {
-		event.getBuilder().addStartMix(
-				// Ingredient
-				ModItems.ICE_BALL,
-				// Output potion.
-				ModPotions.FREEZING
-		);
+		for (BrewingMix addMix : BrewingMix.addMixes()) {
+			if (addMix.base().isEmpty()) {
+				event.getBuilder().addStartMix(addMix.reagent(), addMix.output());
+			} else {
+				event.getBuilder().addMix(addMix.base().get(), addMix.reagent(), addMix.output());
+			}
+		}
 	}
-	^///?}
+	//?}
 
 	//? if <26.4 {
 	@SubscribeEvent
@@ -72,22 +72,25 @@ public class NeoForgeEntrypoint {
 		}
 	}
 
-	private static void insertAfter(BuildCreativeModeTabContentsEvent event, Item after, Item item) {
+	private static void insertAfter(BuildCreativeModeTabContentsEvent event, Item after, Item[] items) {
 		ItemStack afterStack = new ItemStack(after);
-		ItemStack stack = new ItemStack(item);
 		if (event.getParentEntries().contains(afterStack) && event.getSearchEntries().contains(afterStack)) {
-			event.insertAfter(afterStack, stack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+			for (Item item : items) {
+				event.insertAfter(afterStack, new ItemStack(item), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+			}
 		} else {
-			event.accept(stack);
+			for (Item item : items) {
+				event.accept(item);
+			}
 		}
 	}
 
 	//? if <26 {
-	/^@SubscribeEvent
+	@SubscribeEvent
 	public static void addWanderingTrades(WandererTradesEvent event) {
 		event.getGenericTrades().addAll(FrozenCaves.wanderingTraderTrades());
 	}
-	^///?}
+	//?}
 	//?}
 }
 *///?}
