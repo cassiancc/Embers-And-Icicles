@@ -41,44 +41,44 @@
       "y": 180
     },
     "attached=true,thickness=base,vertical_direction=down": {
-      "model": "embers_and_icicles:block/icicle_down_base_base"
+      "model": "embers_and_icicles:block/icicle_down_base_base",
+      "uvlock": true
     },
     "attached=true,thickness=base,vertical_direction=up": {
       "model": "embers_and_icicles:block/icicle_down_base_base",
-      "x": 180,
-      "y": 180
+      "x": 180
     },
     "attached=true,thickness=frustum,vertical_direction=down": {
-      "model": "embers_and_icicles:block/icicle_down_frustum_base"
+      "model": "embers_and_icicles:block/icicle_down_frustum_base",
+      "uvlock": true
     },
     "attached=true,thickness=frustum,vertical_direction=up": {
       "model": "embers_and_icicles:block/icicle_down_frustum_base",
-      "x": 180,
-      "y": 180
+      "x": 180
     },
     "attached=true,thickness=middle,vertical_direction=down": {
-      "model": "embers_and_icicles:block/icicle_down_middle_base"
+      "model": "embers_and_icicles:block/icicle_down_middle_base",
+      "uvlock": true
     },
     "attached=true,thickness=middle,vertical_direction=up": {
       "model": "embers_and_icicles:block/icicle_down_middle_base",
-      "x": 180,
-      "y": 180
+      "x": 180
     },
     "attached=true,thickness=tip,vertical_direction=down": {
-      "model": "embers_and_icicles:block/icicle_down_tip_base"
+      "model": "embers_and_icicles:block/icicle_down_tip_base",
+      "uvlock": true
     },
     "attached=true,thickness=tip,vertical_direction=up": {
       "model": "embers_and_icicles:block/icicle_down_tip_base",
-      "x": 180,
-      "y": 180
+      "x": 180
     },
     "attached=true,thickness=tip_merge,vertical_direction=down": {
-      "model": "embers_and_icicles:block/icicle_down_tip_merge_base"
+      "model": "embers_and_icicles:block/icicle_down_tip_merge_base",
+      "uvlock": true
     },
     "attached=true,thickness=tip_merge,vertical_direction=up": {
       "model": "embers_and_icicles:block/icicle_down_tip_merge_base",
-      "x": 180,
-      "y": 180
+      "x": 180
     }
   }
 }

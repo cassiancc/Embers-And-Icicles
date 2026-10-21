@@ -32,6 +32,7 @@ public class ModSoundEvents {
 	public static final SoundEvent FROSTED_ICE_PLACE = register("block.frosted_ice.place");
 	public static final SoundEvent FROSTED_ICE_STEP = register("block.frosted_ice.step");
 
+	public static final SoundEvent ICE_AMBIENT = register("block.ice.ambient");
 	public static final SoundEvent ICE_BREAK = register("block.ice.break");
 	public static final SoundEvent ICE_FALL = register("block.ice.fall");
 	public static final SoundEvent ICE_HIT = register("block.ice.hit");

@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "embers_and_icicles:packed_ice_bricks",
+  "result": {
+    "id": "embers_and_icicles:packed_ice_brick_wall"
+  }
+}

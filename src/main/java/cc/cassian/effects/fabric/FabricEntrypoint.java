@@ -134,7 +134,7 @@ public class FabricEntrypoint implements ModInitializer {
 	private static void registerFrozenCaves() {
 		FabricDefaultAttributeRegistry.register(ModEntityTypes.FROSTBITE, Frostbite.createAttributes());
 		SpawnPlacementsInvoker.embers$register(ModEntityTypes.FROSTBITE, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-				ModEntityTypes::checkFrostbiteSpawnRules);
+				ModEntityTypes::checkColdVariantSpawnRules);
 		FrozenCaves.FROSTBITE_SPAWNS.forEach((biome, weight) ->
 				BiomeModifications.addSpawn(BiomeSelectors.includeByKey(biome), MobCategory.MONSTER, ModEntityTypes.FROSTBITE, weight, 4, 4));
 

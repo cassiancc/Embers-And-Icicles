@@ -43,6 +43,11 @@ public class ModItems {
 	public static final Item ICE_CRYSTAL = Items.ICE_CRYSTAL;
 	public static final Item ICICLE = Items.ICICLE;
 	public static final Item FROSTBITE_SPAWN_EGG = Items.FROSTBITE_SPAWN_EGG;
+	public static final Item PACKED_ICE_BRICKS = Items.PACKED_ICE_BRICKS;
+	public static final Item PACKED_ICE_BRICK_SLAB = Items.PACKED_ICE_BRICK_SLAB;
+	public static final Item PACKED_ICE_BRICK_STAIRS = Items.PACKED_ICE_BRICK_STAIRS;
+	public static final Item PACKED_ICE_BRICK_WALL = Items.PACKED_ICE_BRICK_WALL;
+	public static final Item CHISELED_PACKED_ICE = Items.CHISELED_PACKED_ICE;
 	*///?}
 
 	private static Item registerItem(final ResourceKey<Item> id, final Function<Item.Properties, Item> itemFactory, final Item.Properties properties) {

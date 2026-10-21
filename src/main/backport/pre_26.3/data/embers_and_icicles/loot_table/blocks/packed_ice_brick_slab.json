@@ -31,5 +31,5 @@
       "rolls": 1
     }
   ],
-  "random_sequence": "minecraft:blocks/acacia_slab"
+  "random_sequence": "embers_and_icicles:blocks/packed_ice_brick_slab"
 }

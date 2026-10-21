@@ -18,7 +18,7 @@ public class ModTags {
 
 	public static final TagKey<EntityType<?>> DOES_NOT_BREAK_BRITTLE_ICE = entity("does_not_break_brittle_ice");
 
-	public static final TagKey<Biome> SPAWNS_STRAYS_WITHOUT_POWDER_SNOW = biome("spawns_strays_without_powder_snow");
+	public static final TagKey<Biome> SPAWNS_COLD_VARIANTS_UNDERGROUND = biome("spawns_cold_variants_underground");
 
 	private static TagKey<Block> block(String name) {
 		return TagKey.create(Registries.BLOCK, EmbersAndIcicles.of(name));

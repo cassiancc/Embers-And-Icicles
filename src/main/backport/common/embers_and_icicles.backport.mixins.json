@@ -5,6 +5,7 @@
   "mixins": [
     "BlockBehaviourAccessor",
     "FrostedIceBlockMixin",
+    "IceBlockMixin",
     "LiquidBlockMixin",
     "MultiNoiseBiomeSourceParameterListsMixin",
     "MushroomBlockMixin",

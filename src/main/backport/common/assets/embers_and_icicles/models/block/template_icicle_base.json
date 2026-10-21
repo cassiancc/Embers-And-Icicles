@@ -22,12 +22,6 @@
           "cullface": "up"
         },
         "down": {
-          "uv": [
-            0,
-            16,
-            16,
-            0
-          ],
           "texture": "#top"
         }
       }

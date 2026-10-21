@@ -81,12 +81,17 @@ public class ModBlocks {
 	);
 	public static final Block PACKED_ICE_BRICK_SLAB = register(ModBlockIds.PACKED_ICE_BRICK_SLAB, SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
 	public static final Block PACKED_ICE_BRICK_STAIRS = register(ModBlockIds.PACKED_ICE_BRICK_STAIRS, (p)-> new StairBlock(PACKED_ICE_BRICKS.defaultBlockState(), p), BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
-	public static final Block PACKED_ICE_BRICK_WALL = register(ModBlockIds.PACKED_ICE_BRICK_WALL, WallBlock::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
+	public static final Block PACKED_ICE_BRICK_WALL = register(ModBlockIds.PACKED_ICE_BRICK_WALL, WallBlock::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS).forceSolidOn());
 	public static final Block CHISELED_PACKED_ICE = register(ModBlockIds.CHISELED_PACKED_ICE, Block::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
 	//?} else {
 	/*public static final Block BRITTLE_ICE = Blocks.BRITTLE_ICE;
 	public static final Block ICE_CRYSTAL = Blocks.ICE_CRYSTAL;
 	public static final Block ICICLE = Blocks.ICICLE;
+	public static final Block PACKED_ICE_BRICKS = Blocks.PACKED_ICE_BRICKS;
+	public static final Block PACKED_ICE_BRICK_SLAB = Blocks.PACKED_ICE_BRICK_SLAB;
+	public static final Block PACKED_ICE_BRICK_STAIRS = Blocks.PACKED_ICE_BRICK_STAIRS;
+	public static final Block PACKED_ICE_BRICK_WALL = Blocks.PACKED_ICE_BRICK_WALL;
+	public static final Block CHISELED_PACKED_ICE = Blocks.CHISELED_PACKED_ICE;
 	*///?}
 
 	public static void init() {

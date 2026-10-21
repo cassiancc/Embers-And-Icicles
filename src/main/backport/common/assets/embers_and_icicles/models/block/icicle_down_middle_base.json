@@ -1,5 +1,5 @@
 {
-  "parent": "embers_and_icicles:block/icicle_base",
+  "parent": "embers_and_icicles:block/template_icicle_base",
   "textures": {
     "cross": "embers_and_icicles:block/icicle_down_middle",
     "side": "embers_and_icicles:block/icicle_side",

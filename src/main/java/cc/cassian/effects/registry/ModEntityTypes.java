@@ -21,6 +21,7 @@ import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 //? if >=26 {
 import net.minecraft.world.entity.EntitySpawnReason;
 //?} else {
@@ -58,15 +59,22 @@ public class ModEntityTypes {
 	}
 
 	//? if <26.4 {
-	//? if >=26 {
-	public static boolean checkFrostbiteSpawnRules(final EntityType<Frostbite> type, final ServerLevelAccessor level,
-													final EntitySpawnReason reason, final BlockPos pos, final RandomSource random) {
-	//?} else {
-	/*public static boolean checkFrostbiteSpawnRules(final EntityType<Frostbite> type, final ServerLevelAccessor level,
-													final MobSpawnType reason, final BlockPos pos, final RandomSource random) {
-	*///?}
-		return Monster.checkMonsterSpawnRules(type, level, reason, pos, random);
+	//~ if >=26 'MobSpawnType'->'EntitySpawnReason' {
+	public static boolean checkColdVariantSpawnRules(final EntityType<? extends Monster> type, final ServerLevelAccessor level,
+													 final EntitySpawnReason reason, final BlockPos pos, final RandomSource random) {
+		boolean canSpawn = Monster.checkMonsterSpawnRules(type, level, reason, pos, random);
+		if (level.getBiome(pos).is(ModTags.SPAWNS_COLD_VARIANTS_UNDERGROUND)) {
+			return canSpawn;
+		}
+
+		BlockPos checkSkyPos = pos;
+		do {
+			checkSkyPos = checkSkyPos.above();
+		} while (level.getBlockState(checkSkyPos).is(Blocks.POWDER_SNOW));
+
+		return canSpawn && (EntitySpawnReason.isSpawner(reason) || level.canSeeSky(checkSkyPos.below()));
 	}
+	//~}
 	//?}
 
 	public static void init() {

@@ -14,7 +14,9 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.level.ItemLike;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @SuppressWarnings("all")
@@ -64,48 +66,24 @@ public class EmbersRecipeProvider extends FabricRecipeProvider {
 						RecipeCategory.MISC, Items.ICE, ModItems.ICE_BALL);
 
 				//? if <26.4 {
-				twoByTwoPacker(
-						//? if <26
-						//output,
-						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICKS, Items.PACKED_ICE);
-				slab(
-					//? if <26
-					//output,
-					RecipeCategory.MISC, ModItems.PACKED_ICE_BRICK_SLAB, ModItems.PACKED_ICE_BRICKS);
-				stairBuilder(ModItems.PACKED_ICE_BRICK_STAIRS, Ingredient.of(ModItems.PACKED_ICE_BRICKS)).unlockedBy(getHasName(ModItems.PACKED_ICE_BRICKS), has(ModItems.PACKED_ICE_BRICKS)).save(output);
-				chiseled(
-						//? if <26
-						//output,
-						RecipeCategory.MISC, ModItems.CHISELED_PACKED_ICE, ModItems.PACKED_ICE_BRICK_SLAB);
-				stonecutterResultFromBase(
-						//? if <26
-						//output,
-						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICKS, Items.PACKED_ICE);
-				stonecutterResultFromBase(
-						//? if <26
-						//output,
-						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICK_SLAB, ModItems.PACKED_ICE_BRICKS, 2);
-				stonecutterResultFromBase(
-						//? if <26
-						//output,
-						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICK_SLAB, Items.PACKED_ICE, 2);
-				stonecutterResultFromBase(
-						//? if <26
-						//output,
-						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICK_STAIRS, ModItems.PACKED_ICE_BRICKS);
-				stonecutterResultFromBase(
-						//? if <26
-						//output,
-						RecipeCategory.MISC, ModItems.PACKED_ICE_BRICK_STAIRS, Items.PACKED_ICE);
-				stonecutterResultFromBase(
-						//? if <26
-						//output,
-						RecipeCategory.MISC, ModItems.CHISELED_PACKED_ICE, ModItems.PACKED_ICE_BRICKS);
-				stonecutterResultFromBase(
-						//? if <26
-						//output,
-						RecipeCategory.MISC, ModItems.CHISELED_PACKED_ICE, Items.PACKED_ICE);
-			//?}
+				//~ if <26 '(RecipeCategory'->'(output, RecipeCategory' {
+				polished(RecipeCategory.BUILDING_BLOCKS, ModItems.PACKED_ICE_BRICKS, Items.PACKED_ICE);
+				slab(RecipeCategory.BUILDING_BLOCKS, ModItems.PACKED_ICE_BRICK_SLAB, ModItems.PACKED_ICE_BRICKS);
+				stairBuilder(ModItems.PACKED_ICE_BRICK_STAIRS, Ingredient.of(ModItems.PACKED_ICE_BRICKS))
+						.unlockedBy(getHasName(ModItems.PACKED_ICE_BRICKS), has(ModItems.PACKED_ICE_BRICKS))
+						.save(output);
+				wall(RecipeCategory.DECORATIONS, ModItems.PACKED_ICE_BRICK_WALL, ModItems.PACKED_ICE_BRICKS);
+				chiseled(RecipeCategory.BUILDING_BLOCKS, ModItems.CHISELED_PACKED_ICE, ModItems.PACKED_ICE_BRICK_SLAB);
+
+				stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.PACKED_ICE_BRICKS, Items.PACKED_ICE);
+				for (ItemLike base : List.of(Items.PACKED_ICE, ModItems.PACKED_ICE_BRICKS)) {
+					stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.PACKED_ICE_BRICK_SLAB, base, 2);
+					stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.PACKED_ICE_BRICK_STAIRS, base);
+					stonecutterResultFromBase(RecipeCategory.DECORATIONS, ModItems.PACKED_ICE_BRICK_WALL, base);
+					stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.CHISELED_PACKED_ICE, base);
+				}
+				//~}
+				//?}
 				//? if >26 {
 			}
 		};

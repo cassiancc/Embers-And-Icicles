@@ -14,7 +14,7 @@ public class ModConfig extends WrappedConfig {
 	public boolean generateIceCaves = true;
 	@Comment("Whether Zombies turn into Frostbites, and Husks and Drowned into Zombies, after standing in Powder Snow")
 	public boolean freezingConversions = true;
-	@Comment("Whether Ice, Packed Ice, Blue Ice and Frosted Ice use their 26.4 sounds")
+	@Comment("Whether Ice, Packed Ice, Blue Ice and Frosted Ice use their 26.4 sounds, including ambient Ice sounds")
 	public boolean newIceSounds = true;
 	@Comment("Whether Snowballs knock back players")
 	public boolean snowballKnockback = true;

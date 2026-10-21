@@ -33,7 +33,9 @@ public abstract class MushroomBlockMixin {
 	private boolean embers$keepSpreadingRules(BlockState state, LevelReader level, BlockPos pos, Operation<Boolean> original) {
 		EMBERS$SPREADING.set(true);
 		try {
-			return original.call(state, level, pos);
+			return original.call(state, level, pos) || EmbersAndIcicles.CONFIG.mushroomPlacement
+					&& level.getRawBrightness(pos, 0) < 13
+					&& Block.canSupportCenter(level, pos.below(), Direction.UP);
 		} finally {
 			EMBERS$SPREADING.set(false);
 		}

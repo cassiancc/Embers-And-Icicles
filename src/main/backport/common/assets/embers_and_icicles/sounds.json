@@ -172,6 +172,104 @@
     ],
     "subtitle": "subtitles.block.generic.footsteps"
   },
+  "block.ice.ambient": {
+    "sounds": [
+      {
+        "name": "embers_and_icicles:block/ice/ambient1",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient2",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient3",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient4",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient5",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient6",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient7",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient8",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient9",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient10",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient11",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient12",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient13",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient14",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient15",
+        "volume": 4.0,
+        "weight": 2
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient16",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient17",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient18",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient19",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient20",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient21",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient22",
+        "volume": 4.0
+      },
+      {
+        "name": "embers_and_icicles:block/ice/ambient23",
+        "volume": 4.0
+      }
+    ],
+    "subtitle": "subtitles.block.ice.ambient"
+  },
   "block.ice.break": {
     "sounds": [
       "embers_and_icicles:block/ice/break1",

@@ -42,5 +42,8 @@
   "block.embers_and_icicles.packed_ice_brick_slab": "Packed Ice Brick Slab",
   "block.embers_and_icicles.packed_ice_brick_stairs": "Packed Ice Brick Stairs",
   "block.embers_and_icicles.packed_ice_brick_wall": "Packed Ice Brick Wall",
-  "block.embers_and_icicles.packed_ice_bricks": "Packed Ice Bricks"
+  "block.embers_and_icicles.packed_ice_bricks": "Packed Ice Bricks",
+  "subtitles.block.ice.ambient": "Ice resonates",
+  "advancements.adventure.what_goes_around_comes_around.title": "What Goes Around Comes Around",
+  "advancements.adventure.what_goes_around_comes_around.description": "Kill a Frostbite using an Ice Ball"
 }

@@ -47,6 +47,11 @@ import net.minecraft.world.level.ScheduledTickAccess;
 //?} else {
 /*import net.minecraft.world.level.block.state.properties.DirectionProperty;
 *///?}
+//? if >=26.3 {
+import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.gamerules.GameRules;
+//?}
 
 import java.util.Optional;
 import java.util.function.BiPredicate;
@@ -236,7 +241,7 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
 		if (level instanceof ServerLevel serverLevel
 				&& projectile.mayInteract(serverLevel, pos)
 				//~ if <26.3 'mayBreak(serverLevel, pos)'->'mayBreak(serverLevel)'
-				&& projectile.mayBreak(serverLevel, pos)
+				&& (projectile.mayBreak(serverLevel, pos) || mobMayBreak(serverLevel, projectile))
 		//?} else {
 		/*if (!level.isClientSide()
 				&& projectile.mayInteract(level, pos)
@@ -246,6 +251,18 @@ public class IcicleBlock extends Block implements Fallable, SimpleWaterloggedBlo
 				&& projectile.getDeltaMovement().length() > MIN_TRIDENT_VELOCITY_TO_BREAK) {
 			level.destroyBlock(pos, true);
 		}
+	}
+
+	private static boolean mobMayBreak(final ServerLevel level, final Projectile projectile) {
+		//? if >=26.3 {
+		Entity owner = projectile.getOwner();
+		return owner != null && !(owner instanceof Player)
+				&& projectile.is(EntityTypeTags.IMPACT_PROJECTILES)
+				&& level.getGameRules().get(GameRules.PROJECTILES_CAN_BREAK_BLOCKS)
+				&& level.getGameRules().get(GameRules.MOB_GRIEFING);
+		//?} else {
+		/*return false;
+		*///?}
 	}
 
 	@Override

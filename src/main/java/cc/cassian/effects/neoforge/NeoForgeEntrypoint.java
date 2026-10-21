@@ -60,7 +60,7 @@ public class NeoForgeEntrypoint {
 	@SubscribeEvent
 	public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
 		event.register(ModEntityTypes.FROSTBITE, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-				ModEntityTypes::checkFrostbiteSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+				ModEntityTypes::checkColdVariantSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 	}
 
 	@SubscribeEvent
