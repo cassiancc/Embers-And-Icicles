@@ -7,6 +7,7 @@
   - "What Goes Around Comes Around" advancement.
   - Ice now occasionally makes ambient sound when surrounded by Ice, with air above and water below.
   - Ice Caves can now contain Strongholds and Ruined Portals.
+- Support for NeoForge 26.3.
 
 ### Changed
 - Frostbites follow the same underground spawning rules as Strays.
