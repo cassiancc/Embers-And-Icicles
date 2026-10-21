@@ -1,0 +1,10 @@
+{
+  "values": [
+    "embers_and_icicles:icicle",
+    {
+      "id": "minecraft:sulfur_spike",
+      "required": false
+    },
+    "minecraft:pointed_dripstone"
+  ]
+}
