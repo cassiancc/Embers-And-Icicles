@@ -46,8 +46,8 @@ val backportResources = when {
 	stonecutter.eval(mcVersion, ">=26.4") -> listOf("26.4")
 	stonecutter.eval(mcVersion, ">=26.3") -> listOf("common", "26", "26.3")
 	stonecutter.eval(mcVersion, ">=26.2") -> listOf("common", "26", "pre_26.3", "26.1", "26.2")
-	stonecutter.eval(mcVersion, ">=26") -> listOf("common", "26", "pre_26.3", "pre_26.2", "26.1")
-	else -> listOf("common", "pre_26.3", "pre_26.2", "1.21.1")
+	stonecutter.eval(mcVersion, ">=26") -> listOf("common", "26", "pre_26.3", "26.1")
+	else -> listOf("common", "pre_26.3", "1.21.1")
 }
 sourceSets.main {
 	backportResources.forEach { resources.srcDir(rootProject.file("src/main/backport/$it")) }

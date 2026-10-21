@@ -3,13 +3,15 @@
   "criteria": {
     "kill_frostbite_with_ice_ball": {
       "conditions": {
-        "entity": {
-          "type": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "minecraft:entity_type": "embers_and_icicles:frostbite"
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "embers_and_icicles:frostbite"
+            }
           }
-        },
+        ],
         "killing_blow": {
           "direct_entity": {
             "minecraft:entity_type": "embers_and_icicles:ice_ball"
@@ -17,7 +19,7 @@
           "tags": [
             {
               "expected": true,
-              "id": "#minecraft:is_projectile"
+              "id": "minecraft:is_projectile"
             }
           ]
         }

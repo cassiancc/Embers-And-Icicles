@@ -2,10 +2,11 @@
 - Fire now applies a special heart type.
 - Item Descriptions support.
 - Tag translations for backported tags.
-- 26.4-snapshot-5's Ice Bricks and Chiseled Ice blocks.
-- Backported the "What Goes Around Comes Around" advancement.
-- Ice now occasionally makes ambient sound when surrounded by Ice, with air above and water below.
-- Ice Caves can now contain Strongholds and Ruined Portals.
+- Backported content from 26.4-snapshot-5.
+  - Ice Bricks and Chiseled Ice blocks.
+  - "What Goes Around Comes Around" advancement.
+  - Ice now occasionally makes ambient sound when surrounded by Ice, with air above and water below.
+  - Ice Caves can now contain Strongholds and Ruined Portals.
 
 ### Changed
 - Frostbites follow the same underground spawning rules as Strays.
