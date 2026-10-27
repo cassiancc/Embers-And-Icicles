@@ -3,6 +3,8 @@ package cc.cassian.effects;
 //? if <26.4
 import cc.cassian.effects.backport.FrozenCaves;
 import cc.cassian.effects.config.ModConfig;
+import cc.cassian.effects.references.ModBlockIds;
+import cc.cassian.effects.references.ModItemIds;
 import cc.cassian.effects.registry.*;
 import cc.cassian.effects.util.ModUtil;
 import net.minecraft.resources.Identifier;
@@ -17,8 +19,10 @@ public class EmbersAndIcicles {
 	public static void onInitialize() {
 		ModSoundEvents.init();
 		ModParticleTypes.init();
+		ModBlockIds.init();
 		ModBlocks.init();
 		ModEntityTypes.init();
+		ModItemIds.init();
 		ModItems.init();
 		ModEffects.init();
 		ModPotions.init();

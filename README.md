@@ -7,9 +7,11 @@
 
 - The **Freezing** effect introduced in 26.4 is now applied by Powder Snow.
 - A status effect for **Burning**, so players have an indicator on how long they will burn for.
-- On versions below 26.4, the Freezing effect and Ice Balls are backported.
 - By default, Ice Balls are now dropped when mining Ice without Silk Touch.
 - On versions below 26.4, the rest of the indev 26.4 drop is backported:
+  - The **Freezing** effect, which damages the player over time.
+  - **Ice Balls**, which apply Freezing and can be used to brew Freezing Potions.
+  - **Packed Ice Bricks** and **Snow Bricks**
   - **Ice Caves**, a cave biome beneath frozen oceans made of bands of packed ice and calcite, with large icicles, icicle clusters, ice crystals, snow, ice cave ores, and crevasses covered in brittle ice.
   - **Frostbites**, zombies found in snowy biomes and ice caves whose attacks inflict Freezing. Some of them throw Ice Balls. Zombies standing in Powder Snow turn into Frostbites, while Husks and Drowned turn back into Zombies.
   - **Brittle Ice**, **Ice Crystals** and **Icicles**. Icicles grow in the dark, melt near light, and fall on whoever's below.

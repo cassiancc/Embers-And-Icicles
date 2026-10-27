@@ -2,8 +2,9 @@
 - Fire now applies a special heart type.
 - Item Descriptions support.
 - Tag translations for backported tags.
-- Backported content from 26.4-snapshot-5.
+- Backported content from 26.4-snapshot-5 and 26.4-snapshot-6.
   - Ice Bricks and Chiseled Ice blocks.
+  - Snow Bricks.
   - "What Goes Around Comes Around" advancement.
   - Ice now occasionally makes ambient sound when surrounded by Ice, with air above and water below.
   - Ice Caves can now contain Strongholds and Ruined Portals.

@@ -1,6 +1,8 @@
 package cc.cassian.effects.references;
 
 import cc.cassian.effects.EmbersAndIcicles;
+import cc.cassian.effects.util.ModUtil;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
@@ -18,10 +20,19 @@ public class ModItemIds {
 	public static final ResourceKey<Item> PACKED_ICE_BRICK_STAIRS = register("packed_ice_brick_stairs");
 	public static final ResourceKey<Item> PACKED_ICE_BRICK_WALL = register("packed_ice_brick_wall");
 	public static final ResourceKey<Item> CHISELED_PACKED_ICE = register("chiseled_packed_ice");
+	public static final ResourceKey<Item> SNOW_BRICKS = register("snow_bricks");
+	public static final ResourceKey<Item> SNOW_BRICK_SLAB = register("snow_brick_slab");
+	public static final ResourceKey<Item> SNOW_BRICK_STAIRS = register("snow_brick_stairs");
+	public static final ResourceKey<Item> SNOW_BRICK_WALL = register("snow_brick_wall");
 	//?}
 
 	private static ResourceKey<Item> register(String path) {
+		//? if >=26.4
+		//ModUtil.addAlias(BuiltInRegistries.ITEM, path);
 		return ResourceKey.create(Registries.ITEM, EmbersAndIcicles.of(path));
 	}
 
+	public static void init() {
+
+	}
 }

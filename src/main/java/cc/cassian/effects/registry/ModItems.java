@@ -5,7 +5,6 @@ package cc.cassian.effects.registry;
 //? if <26.4
 import cc.cassian.effects.item.IceBallItem;
 import cc.cassian.effects.references.ModItemIds;
-import cc.cassian.effects.util.ModUtil;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -28,6 +27,10 @@ public class ModItems {
 	public static final Item PACKED_ICE_BRICK_STAIRS = registerBlock(ModItemIds.PACKED_ICE_BRICK_STAIRS, ModBlocks.PACKED_ICE_BRICK_STAIRS);
 	public static final Item PACKED_ICE_BRICK_WALL = registerBlock(ModItemIds.PACKED_ICE_BRICK_WALL, ModBlocks.PACKED_ICE_BRICK_WALL);
 	public static final Item CHISELED_PACKED_ICE = registerBlock(ModItemIds.CHISELED_PACKED_ICE, ModBlocks.CHISELED_PACKED_ICE);
+	public static final Item SNOW_BRICKS = registerBlock(ModItemIds.SNOW_BRICKS, ModBlocks.SNOW_BRICKS);
+	public static final Item SNOW_BRICK_SLAB = registerBlock(ModItemIds.SNOW_BRICK_SLAB, ModBlocks.SNOW_BRICK_SLAB);
+	public static final Item SNOW_BRICK_STAIRS = registerBlock(ModItemIds.SNOW_BRICK_STAIRS, ModBlocks.SNOW_BRICK_STAIRS);
+	public static final Item SNOW_BRICK_WALL = registerBlock(ModItemIds.SNOW_BRICK_WALL, ModBlocks.SNOW_BRICK_WALL);
 	//? if >=26 {
 	public static final Item FROSTBITE_SPAWN_EGG = registerItem(ModItemIds.FROSTBITE_SPAWN_EGG, SpawnEggItem::new,
 			new Item.Properties().spawnEgg(ModEntityTypes.FROSTBITE));
@@ -66,17 +69,6 @@ public class ModItems {
 	}
 
 	public static void init() {
-		//? if >26.3 {
-		/*ModUtil.addAlias(BuiltInRegistries.ITEM, "ice_ball");
-		ModUtil.addAlias(BuiltInRegistries.ITEM, "brittle_ice");
-		ModUtil.addAlias(BuiltInRegistries.ITEM, "ice_crystal");
-		ModUtil.addAlias(BuiltInRegistries.ITEM, "icicle");
-		ModUtil.addAlias(BuiltInRegistries.ITEM, "frostbite_spawn_egg");
-		ModUtil.addAlias(BuiltInRegistries.ITEM, "packed_ice_bricks");
-		ModUtil.addAlias(BuiltInRegistries.ITEM, "packed_ice_brick_slab");
-		ModUtil.addAlias(BuiltInRegistries.ITEM, "packed_ice_brick_stairs");
-		ModUtil.addAlias(BuiltInRegistries.ITEM, "packed_ice_brick_wall");
-		ModUtil.addAlias(BuiltInRegistries.ITEM, "chiseled_packed_ice");
-		*///?}
+
 	}
 }

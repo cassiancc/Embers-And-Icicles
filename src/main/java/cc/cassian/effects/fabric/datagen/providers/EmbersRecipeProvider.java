@@ -75,12 +75,26 @@ public class EmbersRecipeProvider extends FabricRecipeProvider {
 				wall(RecipeCategory.DECORATIONS, ModItems.PACKED_ICE_BRICK_WALL, ModItems.PACKED_ICE_BRICKS);
 				chiseled(RecipeCategory.BUILDING_BLOCKS, ModItems.CHISELED_PACKED_ICE, ModItems.PACKED_ICE_BRICK_SLAB);
 
+				polished(RecipeCategory.BUILDING_BLOCKS, ModItems.SNOW_BRICKS, Items.SNOW_BLOCK);
+				slab(RecipeCategory.BUILDING_BLOCKS, ModItems.SNOW_BRICK_SLAB, ModItems.SNOW_BRICKS);
+				stairBuilder(ModItems.SNOW_BRICK_STAIRS, Ingredient.of(ModItems.SNOW_BRICKS))
+						.unlockedBy(getHasName(ModItems.SNOW_BRICKS), has(ModItems.SNOW_BRICKS))
+						.save(output);
+				wall(RecipeCategory.DECORATIONS, ModItems.SNOW_BRICK_WALL, ModItems.SNOW_BRICKS);
+
 				stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.PACKED_ICE_BRICKS, Items.PACKED_ICE);
 				for (ItemLike base : List.of(Items.PACKED_ICE, ModItems.PACKED_ICE_BRICKS)) {
 					stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.PACKED_ICE_BRICK_SLAB, base, 2);
 					stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.PACKED_ICE_BRICK_STAIRS, base);
 					stonecutterResultFromBase(RecipeCategory.DECORATIONS, ModItems.PACKED_ICE_BRICK_WALL, base);
 					stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.CHISELED_PACKED_ICE, base);
+				}
+
+				stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.SNOW_BRICKS, Items.SNOW_BLOCK);
+				for (ItemLike base : List.of(Items.SNOW, ModItems.SNOW_BRICKS)) {
+					stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.SNOW_BRICK_SLAB, base, 2);
+					stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModItems.SNOW_BRICK_STAIRS, base);
+					stonecutterResultFromBase(RecipeCategory.DECORATIONS, ModItems.SNOW_BRICK_WALL, base);
 				}
 				//~}
 				//?}

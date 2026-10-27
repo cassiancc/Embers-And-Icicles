@@ -1,6 +1,6 @@
 package cc.cassian.effects.registry;
 
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.*;
 //? if <26.4 {
 import cc.cassian.effects.block.BrittleIceBlock;
 import cc.cassian.effects.block.IceCrystalBlock;
@@ -11,9 +11,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 //~ if >=26.2 'EntityType;'->'EntityTypes;'
 import net.minecraft.world.entity.EntityTypes;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -77,12 +74,23 @@ public class ModBlocks {
 	public static final Block PACKED_ICE_BRICKS = register(
 			ModBlockIds.PACKED_ICE_BRICKS,
 			Block::new,
-			BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.CHIME).friction(0.6F).strength(0.5F).sound(ModSoundEvents.PACKED_ICE)
+			BlockBehaviour.Properties.of()
+					.mapColor(MapColor.ICE)
+					.instrument(NoteBlockInstrument.CHIME)
+					.friction(0.6F).strength(0.5F)
+					.requiresCorrectToolForDrops()
+					.sound(ModSoundEvents.PACKED_ICE)
 	);
 	public static final Block PACKED_ICE_BRICK_SLAB = register(ModBlockIds.PACKED_ICE_BRICK_SLAB, SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
 	public static final Block PACKED_ICE_BRICK_STAIRS = register(ModBlockIds.PACKED_ICE_BRICK_STAIRS, (p)-> new StairBlock(PACKED_ICE_BRICKS.defaultBlockState(), p), BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
 	public static final Block PACKED_ICE_BRICK_WALL = register(ModBlockIds.PACKED_ICE_BRICK_WALL, WallBlock::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS).forceSolidOn());
 	public static final Block CHISELED_PACKED_ICE = register(ModBlockIds.CHISELED_PACKED_ICE, Block::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
+	public static final Block SNOW_BRICKS = register(
+			ModBlockIds.SNOW_BRICKS, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).friction(0.6F).requiresCorrectToolForDrops().strength(0.6F).sound(SoundType.SNOW)
+	);
+	public static final Block SNOW_BRICK_SLAB = register(ModBlockIds.SNOW_BRICK_SLAB, SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(SNOW_BRICKS));
+	public static final Block SNOW_BRICK_STAIRS = register(ModBlockIds.SNOW_BRICK_STAIRS, baseState -> new StairBlock(SNOW_BRICKS.defaultBlockState(), baseState), BlockBehaviour.Properties.ofFullCopy(SNOW_BRICKS));
+	public static final Block SNOW_BRICK_WALL = register(ModBlockIds.SNOW_BRICK_WALL,  WallBlock::new, BlockBehaviour.Properties.ofFullCopy(SNOW_BRICKS).forceSolidOn());
 	//?} else {
 	/*public static final Block BRITTLE_ICE = Blocks.BRITTLE_ICE;
 	public static final Block ICE_CRYSTAL = Blocks.ICE_CRYSTAL;
@@ -95,15 +103,6 @@ public class ModBlocks {
 	*///?}
 
 	public static void init() {
-		//? if >26.3 {
-		/*ModUtil.addAlias(BuiltInRegistries.BLOCK, "brittle_ice");
-		ModUtil.addAlias(BuiltInRegistries.BLOCK, "ice_crystal");
-		ModUtil.addAlias(BuiltInRegistries.BLOCK, "icicle");
-		ModUtil.addAlias(BuiltInRegistries.BLOCK, "packed_ice_bricks");
-		ModUtil.addAlias(BuiltInRegistries.BLOCK, "packed_ice_brick_slab");
-		ModUtil.addAlias(BuiltInRegistries.BLOCK, "packed_ice_brick_stairs");
-		ModUtil.addAlias(BuiltInRegistries.BLOCK, "packed_ice_brick_wall");
-		ModUtil.addAlias(BuiltInRegistries.BLOCK, "chiseled_packed_ice");
-		*///?}
+
 	}
 }

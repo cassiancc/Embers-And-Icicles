@@ -23,6 +23,8 @@ import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
+import static cc.cassian.effects.references.ModBlockIds.*;
+
 //~ if <26 'FabricTagsProvider.BlockTagsProvider'->'FabricTagProvider.BlockTagProvider'
 public class EmbersBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 	public EmbersBlockTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
@@ -33,11 +35,13 @@ public class EmbersBlockTagProvider extends FabricTagsProvider.BlockTagsProvider
 	@Override
 	protected void addTags(HolderLookup.Provider provider) {
 		//? if <26.4 {
-		builder(BlockTags.SLABS).add(ModBlockIds.PACKED_ICE_BRICK_SLAB);
-		builder(BlockTags.STAIRS).add(ModBlockIds.PACKED_ICE_BRICK_STAIRS);
-		builder(BlockTags.WALLS).add(ModBlockIds.PACKED_ICE_BRICK_WALL);
+		builder(BlockTags.SLABS).add(PACKED_ICE_BRICK_SLAB, SNOW_BRICK_SLAB);
+		builder(BlockTags.STAIRS).add(PACKED_ICE_BRICK_STAIRS, SNOW_BRICK_STAIRS);
+		builder(BlockTags.WALLS).add(PACKED_ICE_BRICK_WALL, SNOW_BRICK_WALL);
 		builder(tag("ice")).addOptionalTag(BlockTags.ICE);
-		builder(tag("ice")).add(ModBlockIds.PACKED_ICE_BRICKS, ModBlockIds.CHISELED_PACKED_ICE, ModBlockIds.BRITTLE_ICE);
+		builder(tag("ice")).add(PACKED_ICE_BRICKS, CHISELED_PACKED_ICE, BRITTLE_ICE);
+//		builder(BlockTags.MINEABLE_WITH_PICKAXE).add(PACKED_ICE_BRICKS, PACKED_ICE_BRICK_STAIRS, PACKED_ICE_BRICK_SLAB, BRITTLE_ICE, ICE_CRYSTAL, CHISELED_PACKED_ICE).remove(SNOW_BRICK_WALL);
+		builder(BlockTags.MINEABLE_WITH_SHOVEL).add(SNOW_BRICKS, SNOW_BRICK_SLAB, SNOW_BRICK_STAIRS, SNOW_BRICK_WALL);
 		//? if =26.3 {
 		builder(ModTags.ICE_CREVASSE_REPLACEABLES)
 				.addOptionalTag(BlockTags.STONE_ORE_REPLACEABLES)
