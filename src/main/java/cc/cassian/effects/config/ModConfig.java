@@ -8,9 +8,10 @@ public class ModConfig extends WrappedConfig {
 	public boolean iceDropsIceBalls = true;
 	@Comment("Whether to rename Ice Balls to Ice Cubes")
 	public boolean iceCubes = true;
+	@Comment("Whether Snow should obey gravity.")
+	public boolean snowGravity = true;
 
 	//? if <26.4 {
-
 	public Backport backport = new Backport();
 	public static class Backport implements WrappedConfig.Section {
 		@Comment("Whether Ice Caves generate beneath frozen oceans in new chunks")

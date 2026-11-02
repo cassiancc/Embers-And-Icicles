@@ -8,6 +8,7 @@
 - The **Freezing** effect introduced in 26.4 is now applied by Powder Snow.
 - A status effect for **Burning**, so players have an indicator on how long they will burn for.
 - By default, Ice Balls are now dropped when mining Ice without Silk Touch.
+- By default, snow is now affected by gravity.
 - On versions below 26.4, the rest of the indev 26.4 drop is backported:
   - The **Freezing** effect, which damages the player over time.
   - **Ice Balls**, which apply Freezing and can be used to brew Freezing Potions.

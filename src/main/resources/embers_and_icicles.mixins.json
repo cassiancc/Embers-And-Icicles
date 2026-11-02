@@ -11,7 +11,12 @@
     "freezing.EntityMixin",
     "freezing.InsideBlockEffectTypeMixin",
     "freezing.LivingEntityMixin",
-    "freezing.MobEffectMixin"
+    "freezing.MobEffectMixin",
+    "snow_gravity.BlockBehaviourMixin",
+    "snow_gravity.BlockMixin",
+    "snow_gravity.FallableMixin",
+    "snow_gravity.FallingBlockEntityMixin",
+    "snow_gravity.SnowLayerBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
