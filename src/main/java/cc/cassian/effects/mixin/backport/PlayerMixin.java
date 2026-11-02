@@ -31,7 +31,7 @@ public abstract class PlayerMixin {
 	@Unique
 	private static float embers$adjustDamage(DamageSource source, float damage) {
 		if (damage == 0.0F
-				&& EmbersAndIcicles.CONFIG.snowballKnockback
+				&& EmbersAndIcicles.CONFIG.backport.snowballKnockback
 				&& source.getDirectEntity() instanceof ThrowableItemProjectile projectile
 				&& projectile.getItem().is(ModTags.KNOCKS_BACK_PLAYERS_EVEN_WITH_ZERO_DAMAGE)) {
 			return Float.MIN_VALUE;

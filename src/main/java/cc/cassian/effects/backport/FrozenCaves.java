@@ -82,7 +82,7 @@ public final class FrozenCaves {
 	*///?}
 
 	public static void setup() {
-		if (EmbersAndIcicles.CONFIG.newIceSounds) {
+		if (EmbersAndIcicles.CONFIG.backport.newIceSounds) {
 			setSound(Blocks.ICE, ModSoundEvents.ICE);
 			setSound(Blocks.PACKED_ICE, ModSoundEvents.PACKED_ICE);
 			setSound(Blocks.BLUE_ICE, ModSoundEvents.BLUE_ICE);

@@ -10,18 +10,22 @@ public class ModConfig extends WrappedConfig {
 	public boolean iceCubes = true;
 
 	//? if <26.4 {
-	@Comment("Whether Ice Caves generate beneath frozen oceans in new chunks")
-	public boolean generateIceCaves = true;
-	@Comment("Whether Zombies turn into Frostbites, and Husks and Drowned into Zombies, after standing in Powder Snow")
-	public boolean freezingConversions = true;
-	@Comment("Whether Ice, Packed Ice, Blue Ice and Frosted Ice use their 26.4 sounds, including ambient Ice sounds")
-	public boolean newIceSounds = true;
-	@Comment("Whether Snowballs knock back players")
-	public boolean snowballKnockback = true;
-	@Comment("Whether Water next to Blue Ice freezes into Brittle Ice")
-	public boolean blueIceMakesBrittleIce = true;
-	@Comment("Whether Mushrooms can be placed on any solid block regardless of light level")
-	public boolean mushroomPlacement = true;
+
+	public Backport backport = new Backport();
+	public static class Backport implements WrappedConfig.Section {
+		@Comment("Whether Ice Caves generate beneath frozen oceans in new chunks")
+		public boolean generateIceCaves = true;
+		@Comment("Whether Zombies turn into Frostbites, and Husks and Drowned into Zombies, after standing in Powder Snow")
+		public boolean freezingConversions = true;
+		@Comment("Whether Ice, Packed Ice, Blue Ice and Frosted Ice use their 26.4 sounds, including ambient Ice sounds")
+		public boolean newIceSounds = true;
+		@Comment("Whether Snowballs knock back players")
+		public boolean snowballKnockback = true;
+		@Comment("Whether Water next to Blue Ice freezes into Brittle Ice")
+		public boolean blueIceMakesBrittleIce = true;
+		@Comment("Whether Mushrooms can be placed on any solid block regardless of light level")
+		public boolean mushroomPlacement = true;
+	}
 	//?}
 	//? if <26 {
 	/*@Comment("Whether the Frostbite Spawn Egg uses the old two-tone style instead of its 26.4 texture")

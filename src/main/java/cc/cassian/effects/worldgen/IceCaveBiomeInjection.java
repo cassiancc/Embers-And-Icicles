@@ -11,7 +11,7 @@ public final class IceCaveBiomeInjection {
 	}
 
 	public static boolean shouldInject() {
-		return EmbersAndIcicles.CONFIG.generateIceCaves && !BUILDING_BUILTIN_REGISTRIES.get();
+		return EmbersAndIcicles.CONFIG.backport.generateIceCaves && !BUILDING_BUILTIN_REGISTRIES.get();
 	}
 }
 //?}

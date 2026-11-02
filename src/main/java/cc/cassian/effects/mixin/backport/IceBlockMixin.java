@@ -29,7 +29,7 @@ public abstract class IceBlockMixin extends HalfTransparentBlock {
 
 	@Override
 	public void animateTick(final BlockState state, final Level level, final BlockPos pos, final RandomSource random) {
-		if (EmbersAndIcicles.CONFIG.newIceSounds && random.nextInt(EMBERS$IDLE_SOUND_CHANCE) == 0 && embers$shouldPlayAmbientSound(level, pos)) {
+		if (EmbersAndIcicles.CONFIG.backport.newIceSounds && random.nextInt(EMBERS$IDLE_SOUND_CHANCE) == 0 && embers$shouldPlayAmbientSound(level, pos)) {
 			level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), ModSoundEvents.ICE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
 		}
 	}

@@ -94,7 +94,7 @@ public abstract class ZombieMixin extends Monster implements FreezingConvertible
 
 	@Inject(method = "tick", at = @At("TAIL"))
 	private void embers$tickFreezingConversion(final CallbackInfo ci) {
-		if (this.level().isClientSide() || !this.isAlive() || this.isNoAi() || !EmbersAndIcicles.CONFIG.freezingConversions) {
+		if (this.level().isClientSide() || !this.isAlive() || this.isNoAi() || !EmbersAndIcicles.CONFIG.backport.freezingConversions) {
 			return;
 		}
 

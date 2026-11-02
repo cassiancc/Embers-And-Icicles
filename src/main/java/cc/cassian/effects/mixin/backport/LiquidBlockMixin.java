@@ -26,7 +26,7 @@ public abstract class LiquidBlockMixin {
 
 	@Inject(method = "shouldSpreadLiquid", at = @At("HEAD"), cancellable = true)
 	private void embers$freezeNextToBlueIce(Level level, BlockPos pos, BlockState state, CallbackInfoReturnable<Boolean> cir) {
-		if (!EmbersAndIcicles.CONFIG.blueIceMakesBrittleIce || this.fluid != Fluids.WATER) {
+		if (!EmbersAndIcicles.CONFIG.backport.blueIceMakesBrittleIce || this.fluid != Fluids.WATER) {
 			return;
 		}
 

@@ -23,7 +23,7 @@ public abstract class MushroomBlockMixin {
 
 	@Inject(method = "canSurvive", at = @At("HEAD"), cancellable = true)
 	private void embers$placeAnywhere(BlockState state, LevelReader level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-		if (EmbersAndIcicles.CONFIG.mushroomPlacement && !EMBERS$SPREADING.get() && Block.canSupportCenter(level, pos.below(), Direction.UP)) {
+		if (EmbersAndIcicles.CONFIG.backport.mushroomPlacement && !EMBERS$SPREADING.get() && Block.canSupportCenter(level, pos.below(), Direction.UP)) {
 			cir.setReturnValue(true);
 		}
 	}
@@ -33,7 +33,7 @@ public abstract class MushroomBlockMixin {
 	private boolean embers$keepSpreadingRules(BlockState state, LevelReader level, BlockPos pos, Operation<Boolean> original) {
 		EMBERS$SPREADING.set(true);
 		try {
-			return original.call(state, level, pos) || EmbersAndIcicles.CONFIG.mushroomPlacement
+			return original.call(state, level, pos) || EmbersAndIcicles.CONFIG.backport.mushroomPlacement
 					&& level.getRawBrightness(pos, 0) < 13
 					&& Block.canSupportCenter(level, pos.below(), Direction.UP);
 		} finally {
