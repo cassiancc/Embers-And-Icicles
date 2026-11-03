@@ -15,6 +15,8 @@ import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 *///?}
 import net.minecraft.core.registries.BuiltInRegistries;
+//~ if >=26.2 'cc.cassian.effects.references.BlockItemId'->'net.minecraft.references.BlockItemId'
+import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
@@ -31,19 +33,25 @@ public class EmbersModelProvider extends FabricModelProvider {
 	@Override
 	public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
 		BuiltInRegistries.ITEM.entrySet().forEach(resourceKeyItemEntry -> {
-			Identifier key =  resourceKeyItemEntry.getKey().identifier();
+			Identifier id =  resourceKeyItemEntry.getKey().identifier();
 			Item value = resourceKeyItemEntry.getValue();
-			if (key.equals(ModBlockItemIds.ICE_CRYSTAL.item().identifier())) return;
-			if (key.getNamespace().equals(EmbersAndIcicles.MOD_ID)) {
+			if (is(id, ModBlockItemIds.ICE_CRYSTAL) || is(id, ModBlockItemIds.ICICLE)) return;
+			if (id.getNamespace().equals(EmbersAndIcicles.MOD_ID)) {
 				if (value instanceof BlockItem blockItem) {
-					key = key.withPrefix("block/");
-					if (key.getPath().contains("wall"))
-						key = key.withSuffix("_inventory");
+					id = id.withPrefix("block/");
+					if (id.getPath().contains("wall"))
+						id = id.withSuffix("_inventory");
+					if (id.getPath().contains("brittle"))
+						id = id.withSuffix("_0");
 					//~ if >26 'delegateItemModel'->'registerSimpleItemModel'
-					blockModelGenerators.registerSimpleItemModel(blockItem.getBlock(), key);
+					blockModelGenerators.registerSimpleItemModel(blockItem.getBlock(), id);
 				}
 			}
 		});
+	}
+
+	private boolean is(Identifier id1, BlockItemId id2) {
+		return id1.equals(id2.item().identifier());
 	}
 
 	@Override

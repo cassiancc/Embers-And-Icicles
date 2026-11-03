@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.5]
+
+### Added
+- Calcite Brick block set from 26.4-snapshot-7.
+
+### Fixed
+- Removed stonecutter recipes for snow bricks.
+
 ## [1.0.4]
 
 ### Added

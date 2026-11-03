@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "embers_and_icicles:block/icicle"
+    "model": "embers_and_icicles:item/icicle"
   }
 }
