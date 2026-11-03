@@ -1,6 +1,9 @@
 {
   "values": [
     "embers_and_icicles:packed_ice_brick_stairs",
-    "embers_and_icicles:snow_brick_stairs"
+    "embers_and_icicles:snow_brick_stairs",
+    "embers_and_icicles:calcite_stairs",
+    "embers_and_icicles:polished_calcite_stairs",
+    "embers_and_icicles:polished_calcite_brick_stairs"
   ]
 }

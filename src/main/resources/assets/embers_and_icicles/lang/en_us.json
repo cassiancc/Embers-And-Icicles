@@ -49,5 +49,17 @@
   "block.embers_and_icicles.snow_brick_slab": "Snow Brick Slab",
   "block.embers_and_icicles.snow_brick_stairs": "Snow Brick Stairs",
   "block.embers_and_icicles.snow_brick_wall": "Snow Brick Wall",
-  "block.embers_and_icicles.snow_bricks": "Snow Bricks"
+  "block.embers_and_icicles.snow_bricks": "Snow Bricks",
+  "block.embers_and_icicles.calcite_pillar": "Calcite Pillar",
+  "block.embers_and_icicles.calcite_slab": "Calcite Slab",
+  "block.embers_and_icicles.calcite_stairs": "Calcite Stairs",
+  "block.embers_and_icicles.calcite_wall": "Calcite Wall",
+  "block.embers_and_icicles.polished_calcite": "Polished Calcite",
+  "block.embers_and_icicles.polished_calcite_brick_slab": "Polished Calcite Brick Slab",
+  "block.embers_and_icicles.polished_calcite_brick_stairs": "Polished Calcite Brick Stairs",
+  "block.embers_and_icicles.polished_calcite_brick_wall": "Polished Calcite Brick Wall",
+  "block.embers_and_icicles.polished_calcite_bricks": "Polished Calcite Bricks",
+  "block.embers_and_icicles.polished_calcite_slab": "Polished Calcite Slab",
+  "block.embers_and_icicles.polished_calcite_stairs": "Polished Calcite Stairs",
+  "block.embers_and_icicles.polished_calcite_wall": "Polished Calcite Wall"
 }

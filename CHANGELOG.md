@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.4]
+
+### Added
+- Snow now obeys gravity, configurable.
+- Russian translation, thanks @stilsypups-ops!
+
 ## [1.0.3]
 
 ### Changed

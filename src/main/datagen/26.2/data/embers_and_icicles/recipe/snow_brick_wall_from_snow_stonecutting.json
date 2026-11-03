@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:snow",
-  "result": {
-    "id": "embers_and_icicles:snow_brick_wall"
-  }
-}

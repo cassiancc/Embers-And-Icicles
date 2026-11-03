@@ -6,7 +6,19 @@
     "embers_and_icicles:packed_ice_brick_slab",
     "embers_and_icicles:packed_ice_brick_stairs",
     "embers_and_icicles:packed_ice_brick_wall",
-    "embers_and_icicles:chiseled_packed_ice"
+    "embers_and_icicles:chiseled_packed_ice",
+    "embers_and_icicles:calcite_pillar",
+    "embers_and_icicles:calcite_slab",
+    "embers_and_icicles:calcite_stairs",
+    "embers_and_icicles:calcite_wall",
+    "embers_and_icicles:polished_calcite",
+    "embers_and_icicles:polished_calcite_slab",
+    "embers_and_icicles:polished_calcite_stairs",
+    "embers_and_icicles:polished_calcite_wall",
+    "embers_and_icicles:polished_calcite_bricks",
+    "embers_and_icicles:polished_calcite_brick_slab",
+    "embers_and_icicles:polished_calcite_brick_stairs",
+    "embers_and_icicles:polished_calcite_brick_wall"
   ],
   "fabric:remove": [
     "embers_and_icicles:snow_brick_wall"

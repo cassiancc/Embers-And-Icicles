@@ -4,6 +4,7 @@ package cc.cassian.effects.fabric.datagen.providers;
 
 import cc.cassian.effects.EmbersAndIcicles;
 import cc.cassian.effects.references.ModBlockIds;
+import cc.cassian.effects.references.ModBlockItemIds;
 import cc.cassian.effects.registry.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 //~ if <26 'FabricTagsProvider'->'FabricTagProvider'
@@ -35,9 +36,17 @@ public class EmbersBlockTagProvider extends FabricTagsProvider.BlockTagsProvider
 	@Override
 	protected void addTags(HolderLookup.Provider provider) {
 		//? if <26.4 {
-		builder(BlockTags.SLABS).add(PACKED_ICE_BRICK_SLAB, SNOW_BRICK_SLAB);
-		builder(BlockTags.STAIRS).add(PACKED_ICE_BRICK_STAIRS, SNOW_BRICK_STAIRS);
-		builder(BlockTags.WALLS).add(PACKED_ICE_BRICK_WALL, SNOW_BRICK_WALL);
+		builder(BlockTags.SLABS).add(
+				PACKED_ICE_BRICK_SLAB,
+				SNOW_BRICK_SLAB,
+				ModBlockItemIds.CALCITE_SLAB.block(), ModBlockItemIds.POLISHED_CALCITE_SLAB.block(), ModBlockItemIds.POLISHED_CALCITE_BRICK_SLAB.block()
+		);
+		builder(BlockTags.STAIRS).add(PACKED_ICE_BRICK_STAIRS, SNOW_BRICK_STAIRS,
+				ModBlockItemIds.CALCITE_STAIRS.block(), ModBlockItemIds.POLISHED_CALCITE_STAIRS.block(), ModBlockItemIds.POLISHED_CALCITE_BRICK_STAIRS.block()
+		);
+		builder(BlockTags.WALLS).add(PACKED_ICE_BRICK_WALL, SNOW_BRICK_WALL,
+				ModBlockItemIds.CALCITE_WALL.block(), ModBlockItemIds.POLISHED_CALCITE_WALL.block(), ModBlockItemIds.POLISHED_CALCITE_BRICK_WALL.block()
+		);
 		builder(tag("ice")).addOptionalTag(BlockTags.ICE);
 		builder(tag("ice")).add(PACKED_ICE_BRICKS, CHISELED_PACKED_ICE, BRITTLE_ICE);
 //		builder(BlockTags.MINEABLE_WITH_PICKAXE).add(PACKED_ICE_BRICKS, PACKED_ICE_BRICK_STAIRS, PACKED_ICE_BRICK_SLAB, BRITTLE_ICE, ICE_CRYSTAL, CHISELED_PACKED_ICE).remove(SNOW_BRICK_WALL);

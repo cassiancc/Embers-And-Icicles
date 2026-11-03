@@ -221,6 +221,10 @@ dependencies {
         }
     }
 
+	if (hasProperty("deps.emi")) {
+		modLocalRuntime("dev.emi:emi-fabric:${property("deps.emi")}")
+	}
+
 	if (mcVersion == "1.21.1") {
 		modCompileOnly("maven.modrinth:tiny-takeover-backport:${if (fabric) "rFelsdfF" else "5JqJpRdN"}")
 	}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "embers_and_icicles:block/polished_calcite",
+    "side": "embers_and_icicles:block/polished_calcite",
+    "top": "embers_and_icicles:block/polished_calcite"
+  }
+}

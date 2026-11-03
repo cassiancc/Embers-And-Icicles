@@ -1,3 +1,5 @@
 ### Added
-- Snow now obeys gravity, configurable.
-- Russian translation, thanks @stilsypups-ops!
+- Calcite Brick block set from 26.4-snapshot-7.
+
+### Fixed
+- Removed stonecutter recipes for snow bricks.

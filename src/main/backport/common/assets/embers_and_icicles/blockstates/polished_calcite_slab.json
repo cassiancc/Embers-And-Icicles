@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "embers_and_icicles:block/polished_calcite_slab"
+    },
+    "type=double": {
+      "model": "embers_and_icicles:block/polished_calcite_slab_double"
+    },
+    "type=top": {
+      "model": "embers_and_icicles:block/polished_calcite_slab_top"
+    }
+  }
+}

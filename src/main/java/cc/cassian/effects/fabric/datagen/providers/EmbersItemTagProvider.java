@@ -4,6 +4,7 @@ package cc.cassian.effects.fabric.datagen.providers;
 
 import cc.cassian.effects.EmbersAndIcicles;
 import cc.cassian.effects.references.ModBlockIds;
+import cc.cassian.effects.references.ModBlockItemIds;
 import cc.cassian.effects.references.ModItemIds;
 import cc.cassian.effects.registry.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
@@ -37,7 +38,7 @@ public class EmbersItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 				.add(key("ice"))
 				.add(key("packed_ice"))
 				.add(key("blue_ice"))
-				.add(ModItemIds.BRITTLE_ICE);
+				.add(ModBlockItemIds.BRITTLE_ICE.item());
 		builder(ModTags.FROSTBITE_PREFERRED_WEAPONS).add(ModItemIds.ICE_BALL);
 		builder(ModTags.KNOCKS_BACK_PLAYERS_EVEN_WITH_ZERO_DAMAGE).add(key("snowball"));
 		copy(BlockTags.SLABS, BlockTags.STAIRS, BlockTags.WALLS);

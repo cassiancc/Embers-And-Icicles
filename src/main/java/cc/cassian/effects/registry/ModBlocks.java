@@ -1,5 +1,8 @@
 package cc.cassian.effects.registry;
 
+//~ if >=26.2 'cc.cassian.effects.references.BlockItemId'->'net.minecraft.references.BlockItemId'
+import net.minecraft.references.BlockItemId;
+import cc.cassian.effects.references.ModBlockItemIds;
 import net.minecraft.world.level.block.*;
 //? if <26.4 {
 import cc.cassian.effects.block.BrittleIceBlock;
@@ -15,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.phys.AABB;
 
 import java.util.function.Function;
 //?} else {
@@ -25,6 +29,17 @@ import net.minecraft.world.level.block.Blocks;
 
 public class ModBlocks {
 	//? if <26.4 {
+	//? if >26 {
+	private static final BlockBehaviour.StateArgumentPredicate<AABB> NEAR_PLANE_INTERSECTS_OUTLINE = (state, level, blockPos, nearPlaneBox) -> {
+		for (AABB outlineBox : state.getOcclusionShape().toAabbs()) {
+			if (outlineBox.move(blockPos).intersects(nearPlaneBox)) {
+				return true;
+			}
+		}
+
+		return false;
+	};
+	//?}
 	public static final Block BRITTLE_ICE = register(ModBlockIds.BRITTLE_ICE, BrittleIceBlock::new, BlockBehaviour.Properties.of()
 			.mapColor(MapColor.ICE)
 			.friction(0.98F)
@@ -38,7 +53,7 @@ public class ModBlocks {
 			//~ if >=26.3 'DESTROY'->'POPPED'
 			.pushReaction(PushReaction.POPPED)
 	);
-	public static final Block ICE_CRYSTAL = register(ModBlockIds.ICE_CRYSTAL, IceCrystalBlock::new, BlockBehaviour.Properties.of()
+	public static final Block ICE_CRYSTAL = register(ModBlockItemIds.ICE_CRYSTAL, IceCrystalBlock::new, BlockBehaviour.Properties.of()
 			.mapColor(MapColor.ICE)
 			.sound(ModSoundEvents.ICE_CRYSTAL)
 			.instrument(NoteBlockInstrument.CHIME)
@@ -63,14 +78,6 @@ public class ModBlocks {
 			.isRedstoneConductor((state, level, pos) -> false)
 	);
 
-	private static Block register(final ResourceKey<Block> id, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
-		Block block = factory.apply(properties
-				//? if >1.21.2
-				.setId(id)
-		);
-		return Registry.register(BuiltInRegistries.BLOCK, id, block);
-	}
-
 	public static final Block PACKED_ICE_BRICKS = register(
 			ModBlockIds.PACKED_ICE_BRICKS,
 			Block::new,
@@ -81,16 +88,62 @@ public class ModBlocks {
 					.requiresCorrectToolForDrops()
 					.sound(ModSoundEvents.PACKED_ICE)
 	);
-	public static final Block PACKED_ICE_BRICK_SLAB = register(ModBlockIds.PACKED_ICE_BRICK_SLAB, SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
-	public static final Block PACKED_ICE_BRICK_STAIRS = register(ModBlockIds.PACKED_ICE_BRICK_STAIRS, (p)-> new StairBlock(PACKED_ICE_BRICKS.defaultBlockState(), p), BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
-	public static final Block PACKED_ICE_BRICK_WALL = register(ModBlockIds.PACKED_ICE_BRICK_WALL, WallBlock::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS).forceSolidOn());
-	public static final Block CHISELED_PACKED_ICE = register(ModBlockIds.CHISELED_PACKED_ICE, Block::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
+	public static final Block PACKED_ICE_BRICK_SLAB = registerSlab(ModBlockItemIds.PACKED_ICE_BRICK_SLAB, PACKED_ICE_BRICKS);
+	public static final Block PACKED_ICE_BRICK_STAIRS = register(ModBlockItemIds.PACKED_ICE_BRICK_STAIRS, (p)-> new StairBlock(PACKED_ICE_BRICKS.defaultBlockState(), p), BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
+	public static final Block PACKED_ICE_BRICK_WALL = register(ModBlockItemIds.PACKED_ICE_BRICK_WALL, WallBlock::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS).forceSolidOn());
+	public static final Block CHISELED_PACKED_ICE = register(ModBlockItemIds.CHISELED_PACKED_ICE, Block::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
 	public static final Block SNOW_BRICKS = register(
 			ModBlockIds.SNOW_BRICKS, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).friction(0.6F).requiresCorrectToolForDrops().strength(0.6F).sound(SoundType.SNOW)
 	);
-	public static final Block SNOW_BRICK_SLAB = register(ModBlockIds.SNOW_BRICK_SLAB, SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(SNOW_BRICKS));
-	public static final Block SNOW_BRICK_STAIRS = register(ModBlockIds.SNOW_BRICK_STAIRS, baseState -> new StairBlock(SNOW_BRICKS.defaultBlockState(), baseState), BlockBehaviour.Properties.ofFullCopy(SNOW_BRICKS));
-	public static final Block SNOW_BRICK_WALL = register(ModBlockIds.SNOW_BRICK_WALL,  WallBlock::new, BlockBehaviour.Properties.ofFullCopy(SNOW_BRICKS).forceSolidOn());
+	public static final Block SNOW_BRICK_SLAB = registerSlab(ModBlockItemIds.SNOW_BRICK_SLAB, SNOW_BRICKS);
+	public static final Block SNOW_BRICK_STAIRS = registerStair(ModBlockItemIds.SNOW_BRICK_STAIRS, SNOW_BRICKS);
+	public static final Block SNOW_BRICK_WALL = registerWall(ModBlockItemIds.SNOW_BRICK_WALL, SNOW_BRICKS);
+	public static final Block CALCITE_PILLAR = register(ModBlockItemIds.CALCITE_PILLAR, RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE));
+	public static final Block CALCITE_SLAB = registerSlab(ModBlockItemIds.CALCITE_SLAB, Blocks.CALCITE);
+	public static final Block CALCITE_STAIRS = registerStair(ModBlockItemIds.CALCITE_STAIRS, Blocks.CALCITE);
+	public static final Block CALCITE_WALL = registerWall(ModBlockItemIds.CALCITE_WALL, Blocks.CALCITE);
+	public static final Block POLISHED_CALCITE = register(ModBlockItemIds.POLISHED_CALCITE, BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE));
+	public static final Block POLISHED_CALCITE_SLAB = registerSlab(ModBlockItemIds.POLISHED_CALCITE_SLAB, POLISHED_CALCITE);
+	public static final Block POLISHED_CALCITE_STAIRS = registerStair(ModBlockItemIds.POLISHED_CALCITE_STAIRS, POLISHED_CALCITE);
+	public static final Block POLISHED_CALCITE_WALL = registerWall(ModBlockItemIds.POLISHED_CALCITE_WALL, POLISHED_CALCITE);
+	public static final Block POLISHED_CALCITE_BRICKS = register(ModBlockItemIds.POLISHED_CALCITE_BRICKS, BlockBehaviour.Properties.ofFullCopy(POLISHED_CALCITE));
+	public static final Block POLISHED_CALCITE_BRICK_SLAB = registerSlab(ModBlockItemIds.POLISHED_CALCITE_BRICK_SLAB, POLISHED_CALCITE_BRICKS);
+	public static final Block POLISHED_CALCITE_BRICK_STAIRS = registerStair(ModBlockItemIds.POLISHED_CALCITE_BRICK_STAIRS, POLISHED_CALCITE_BRICKS);
+	public static final Block POLISHED_CALCITE_BRICK_WALL = registerWall(ModBlockItemIds.POLISHED_CALCITE_BRICK_WALL, POLISHED_CALCITE_BRICKS);
+
+	private static Block registerStair(final BlockItemId id, final Block base) {
+		return register(id, p -> new StairBlock(base.defaultBlockState(), p), BlockBehaviour.Properties.ofFullCopy(base)
+				//? if >26.2
+				.isViewBlocking(NEAR_PLANE_INTERSECTS_OUTLINE)
+		);
+	}
+
+	private static Block registerSlab(final BlockItemId id, final Block base) {
+		return register(id, SlabBlock::new, BlockBehaviour.Properties.ofLegacyCopy(base)
+						//? if >26.2
+				.isViewBlocking(NEAR_PLANE_INTERSECTS_OUTLINE)
+		);
+	}
+
+	private static Block registerWall(final BlockItemId id, final Block base) {
+		return register(id.block(), WallBlock::new, BlockBehaviour.Properties.ofLegacyCopy(base).forceSolidOn());
+	}
+
+	private static Block register(final ResourceKey<Block> id, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
+		Block block = factory.apply(properties
+				//? if >1.21.2
+				.setId(id)
+		);
+		return Registry.register(BuiltInRegistries.BLOCK, id, block);
+	}
+
+	private static Block register(final BlockItemId id, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
+		return register(id.block(), factory, properties);
+	}
+
+	private static Block register(final BlockItemId id, final BlockBehaviour.Properties properties) {
+		return register(id.block(), Block::new, properties);
+	}
 	//?} else {
 	/*public static final Block BRITTLE_ICE = Blocks.BRITTLE_ICE;
 	public static final Block ICE_CRYSTAL = Blocks.ICE_CRYSTAL;

@@ -15,6 +15,7 @@ public class EmbersDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(EmbersPotionTagProvider::new);
 		pack.addProvider(EmbersAdvancementProvider::new);
 		pack.addProvider(EmbersBlockLootProvider::new);
+		pack.addProvider(EmbersModelProvider::new);
 	}
 }
 //?}

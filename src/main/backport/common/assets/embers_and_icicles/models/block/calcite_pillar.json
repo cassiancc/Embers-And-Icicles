@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "embers_and_icicles:block/calcite_pillar_top",
+    "side": "embers_and_icicles:block/calcite_pillar_side"
+  }
+}

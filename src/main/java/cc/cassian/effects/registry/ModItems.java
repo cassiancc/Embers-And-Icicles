@@ -4,6 +4,9 @@ package cc.cassian.effects.registry;
 //import cc.cassian.effects.EmbersAndIcicles;
 //? if <26.4
 import cc.cassian.effects.item.IceBallItem;
+//~ if >=26.2 'cc.cassian.effects.references.BlockItemId'->'net.minecraft.references.BlockItemId'
+import net.minecraft.references.BlockItemId;
+import cc.cassian.effects.references.ModBlockItemIds;
 import cc.cassian.effects.references.ModItemIds;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -18,19 +21,32 @@ import java.util.function.Function;
 
 public class ModItems {
 	//? if <26.4 {
+	public static final Item CALCITE_PILLAR = registerBlock(ModBlockItemIds.CALCITE_PILLAR, ModBlocks.CALCITE_PILLAR);
+	public static final Item CALCITE_SLAB = registerBlock(ModBlockItemIds.CALCITE_SLAB, ModBlocks.CALCITE_SLAB);
+	public static final Item CALCITE_STAIRS = registerBlock(ModBlockItemIds.CALCITE_STAIRS, ModBlocks.CALCITE_STAIRS);
+	public static final Item CALCITE_WALL = registerBlock(ModBlockItemIds.CALCITE_WALL, ModBlocks.CALCITE_WALL);
+	public static final Item POLISHED_CALCITE = registerBlock(ModBlockItemIds.POLISHED_CALCITE, ModBlocks.POLISHED_CALCITE);
+	public static final Item POLISHED_CALCITE_SLAB = registerBlock(ModBlockItemIds.POLISHED_CALCITE_SLAB, ModBlocks.POLISHED_CALCITE_SLAB);
+	public static final Item POLISHED_CALCITE_STAIRS = registerBlock(ModBlockItemIds.POLISHED_CALCITE_STAIRS, ModBlocks.POLISHED_CALCITE_STAIRS);
+	public static final Item POLISHED_CALCITE_WALL = registerBlock(ModBlockItemIds.POLISHED_CALCITE_WALL, ModBlocks.POLISHED_CALCITE_WALL);
+	public static final Item POLISHED_CALCITE_BRICKS = registerBlock(ModBlockItemIds.POLISHED_CALCITE_BRICKS, ModBlocks.POLISHED_CALCITE_BRICKS);
+	public static final Item POLISHED_CALCITE_BRICK_SLAB = registerBlock(ModBlockItemIds.POLISHED_CALCITE_BRICK_SLAB, ModBlocks.POLISHED_CALCITE_BRICK_SLAB);
+	public static final Item POLISHED_CALCITE_BRICK_STAIRS = registerBlock(ModBlockItemIds.POLISHED_CALCITE_BRICK_STAIRS, ModBlocks.POLISHED_CALCITE_BRICK_STAIRS);
+	public static final Item POLISHED_CALCITE_BRICK_WALL = registerBlock(ModBlockItemIds.POLISHED_CALCITE_BRICK_WALL, ModBlocks.POLISHED_CALCITE_BRICK_WALL);
+
 	public static final Item ICE_BALL = registerItem(ModItemIds.ICE_BALL, IceBallItem::new, new Item.Properties().stacksTo(16));
-	public static final Item BRITTLE_ICE = registerBlock(ModItemIds.BRITTLE_ICE, ModBlocks.BRITTLE_ICE);
-	public static final Item ICE_CRYSTAL = registerBlock(ModItemIds.ICE_CRYSTAL, ModBlocks.ICE_CRYSTAL);
-	public static final Item ICICLE = registerBlock(ModItemIds.ICICLE, ModBlocks.ICICLE);
-	public static final Item PACKED_ICE_BRICKS = registerBlock(ModItemIds.PACKED_ICE_BRICKS, ModBlocks.PACKED_ICE_BRICKS);
-	public static final Item PACKED_ICE_BRICK_SLAB = registerBlock(ModItemIds.PACKED_ICE_BRICK_SLAB, ModBlocks.PACKED_ICE_BRICK_SLAB);
-	public static final Item PACKED_ICE_BRICK_STAIRS = registerBlock(ModItemIds.PACKED_ICE_BRICK_STAIRS, ModBlocks.PACKED_ICE_BRICK_STAIRS);
-	public static final Item PACKED_ICE_BRICK_WALL = registerBlock(ModItemIds.PACKED_ICE_BRICK_WALL, ModBlocks.PACKED_ICE_BRICK_WALL);
-	public static final Item CHISELED_PACKED_ICE = registerBlock(ModItemIds.CHISELED_PACKED_ICE, ModBlocks.CHISELED_PACKED_ICE);
-	public static final Item SNOW_BRICKS = registerBlock(ModItemIds.SNOW_BRICKS, ModBlocks.SNOW_BRICKS);
-	public static final Item SNOW_BRICK_SLAB = registerBlock(ModItemIds.SNOW_BRICK_SLAB, ModBlocks.SNOW_BRICK_SLAB);
-	public static final Item SNOW_BRICK_STAIRS = registerBlock(ModItemIds.SNOW_BRICK_STAIRS, ModBlocks.SNOW_BRICK_STAIRS);
-	public static final Item SNOW_BRICK_WALL = registerBlock(ModItemIds.SNOW_BRICK_WALL, ModBlocks.SNOW_BRICK_WALL);
+	public static final Item BRITTLE_ICE = registerBlock(ModBlockItemIds.BRITTLE_ICE, ModBlocks.BRITTLE_ICE);
+	public static final Item ICE_CRYSTAL = registerBlock(ModBlockItemIds.ICE_CRYSTAL, ModBlocks.ICE_CRYSTAL);
+	public static final Item ICICLE = registerBlock(ModBlockItemIds.ICICLE, ModBlocks.ICICLE);
+	public static final Item PACKED_ICE_BRICKS = registerBlock(ModBlockItemIds.PACKED_ICE_BRICKS, ModBlocks.PACKED_ICE_BRICKS);
+	public static final Item PACKED_ICE_BRICK_SLAB = registerBlock(ModBlockItemIds.PACKED_ICE_BRICK_SLAB, ModBlocks.PACKED_ICE_BRICK_SLAB);
+	public static final Item PACKED_ICE_BRICK_STAIRS = registerBlock(ModBlockItemIds.PACKED_ICE_BRICK_STAIRS, ModBlocks.PACKED_ICE_BRICK_STAIRS);
+	public static final Item PACKED_ICE_BRICK_WALL = registerBlock(ModBlockItemIds.PACKED_ICE_BRICK_WALL, ModBlocks.PACKED_ICE_BRICK_WALL);
+	public static final Item CHISELED_PACKED_ICE = registerBlock(ModBlockItemIds.CHISELED_PACKED_ICE, ModBlocks.CHISELED_PACKED_ICE);
+	public static final Item SNOW_BRICKS = registerBlock(ModBlockItemIds.SNOW_BRICKS, ModBlocks.SNOW_BRICKS);
+	public static final Item SNOW_BRICK_SLAB = registerBlock(ModBlockItemIds.SNOW_BRICK_SLAB, ModBlocks.SNOW_BRICK_SLAB);
+	public static final Item SNOW_BRICK_STAIRS = registerBlock(ModBlockItemIds.SNOW_BRICK_STAIRS, ModBlocks.SNOW_BRICK_STAIRS);
+	public static final Item SNOW_BRICK_WALL = registerBlock(ModBlockItemIds.SNOW_BRICK_WALL, ModBlocks.SNOW_BRICK_WALL);
 	//? if >=26 {
 	public static final Item FROSTBITE_SPAWN_EGG = registerItem(ModItemIds.FROSTBITE_SPAWN_EGG, SpawnEggItem::new,
 			new Item.Properties().spawnEgg(ModEntityTypes.FROSTBITE));
@@ -66,6 +82,10 @@ public class ModItems {
 				//? if >1.21.2
 				.useBlockDescriptionPrefix()
 		);
+	}
+
+	private static Item registerBlock(final BlockItemId id, final Block block) {
+		return registerBlock(id.item(), block);
 	}
 
 	public static void init() {

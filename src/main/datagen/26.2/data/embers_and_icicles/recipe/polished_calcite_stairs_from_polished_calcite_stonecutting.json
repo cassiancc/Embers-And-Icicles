@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "embers_and_icicles:polished_calcite",
+  "result": {
+    "id": "embers_and_icicles:polished_calcite_stairs"
+  }
+}

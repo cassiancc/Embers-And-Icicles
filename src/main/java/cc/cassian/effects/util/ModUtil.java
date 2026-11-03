@@ -1,6 +1,8 @@
 package cc.cassian.effects.util;
 
 import cc.cassian.effects.EmbersAndIcicles;
+//~ if >=26.2 'cc.cassian.effects.references.BlockItemId'->'net.minecraft.references.BlockItemId'
+import net.minecraft.references.BlockItemId;
 //? fabric {
 import net.fabricmc.loader.api.FabricLoader;
 //?} else {
@@ -9,8 +11,10 @@ import net.neoforged.fml.loading.FMLPaths;
 *///?}
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 //? if >=26.3 {
@@ -107,5 +111,13 @@ public class ModUtil {
 
 	public static void addAlias(Registry<?> registry, String path) {
 		registry.addAlias(EmbersAndIcicles.of(path), Identifier.withDefaultNamespace(path));
+	}
+
+	public static BlockItemId create(String path) {
+		//? if >=26.4 {
+		/*ModUtil.addAlias(BuiltInRegistries.BLOCK, path);
+		ModUtil.addAlias(BuiltInRegistries.ITEM, path);
+		*///?}
+		return new BlockItemId(ResourceKey.create(Registries.BLOCK, EmbersAndIcicles.of(path)), ResourceKey.create(Registries.ITEM, EmbersAndIcicles.of(path)));
 	}
 }

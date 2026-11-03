@@ -20,10 +20,23 @@ public class EmbersBlockLootProvider extends FabricBlockLootSubProvider {
 	@Override
 	public void generate() {
 		//? if <26.4 {
-		dropSelf(ModBlocks.SNOW_BRICKS);
-		add(ModBlocks.SNOW_BRICK_SLAB, this::createSlabItemTable);
-		dropSelf(ModBlocks.SNOW_BRICK_STAIRS);
-		dropSelf(ModBlocks.SNOW_BRICK_WALL);
+		this.dropSelf(ModBlocks.SNOW_BRICKS);
+		this.add(ModBlocks.SNOW_BRICK_SLAB, this::createSlabItemTable);
+		this.dropSelf(ModBlocks.SNOW_BRICK_STAIRS);
+		this.dropSelf(ModBlocks.SNOW_BRICK_WALL);
+		this.dropSelf(Blocks.CALCITE);
+		this.dropSelf(ModBlocks.CALCITE_PILLAR);
+		this.add(ModBlocks.CALCITE_SLAB, this::createSlabItemTable);
+		this.dropSelf(ModBlocks.CALCITE_STAIRS);
+		this.dropSelf(ModBlocks.CALCITE_WALL);
+		this.dropSelf(ModBlocks.POLISHED_CALCITE);
+		this.add(ModBlocks.POLISHED_CALCITE_SLAB, this::createSlabItemTable);
+		this.dropSelf(ModBlocks.POLISHED_CALCITE_STAIRS);
+		this.dropSelf(ModBlocks.POLISHED_CALCITE_WALL);
+		this.dropSelf(ModBlocks.POLISHED_CALCITE_BRICKS);
+		this.add(ModBlocks.POLISHED_CALCITE_BRICK_SLAB, this::createSlabItemTable);
+		this.dropSelf(ModBlocks.POLISHED_CALCITE_BRICK_STAIRS);
+		this.dropSelf(ModBlocks.POLISHED_CALCITE_BRICK_WALL);
 		//?}
 	}
 }
