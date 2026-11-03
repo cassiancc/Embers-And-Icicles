@@ -3,3 +3,4 @@
 
 ### Fixed
 - Removed stonecutter recipes for snow bricks.
+- Crash with certain mod blocks with layers.
