@@ -15,7 +15,7 @@ import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 *///?}
 import net.minecraft.core.registries.BuiltInRegistries;
-//~ if >=26.2 'cc.cassian.effects.references.BlockItemId'->'net.minecraft.references.BlockItemId'
+//~ if >=26.2 'cc.cassian.asphodel'->'net.minecraft'
 import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;

@@ -1,9 +1,10 @@
 package cc.cassian.effects;
 
+import cc.cassian.asphodel.util.CommonRegistry;
+import cc.cassian.asphodel.util.RegistryUtils;
 //? if <26.4
 import cc.cassian.effects.backport.FrozenCaves;
 import cc.cassian.effects.config.ModConfig;
-import cc.cassian.effects.references.ModBlockIds;
 import cc.cassian.effects.references.ModItemIds;
 import cc.cassian.effects.registry.*;
 import cc.cassian.effects.util.ModUtil;
@@ -15,14 +16,13 @@ public class EmbersAndIcicles {
 	public static final String MOD_ID = "embers_and_icicles";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final ModConfig CONFIG = ModConfig.createToml(ModUtil.getConfigDir(), "", MOD_ID, ModConfig.class);
+	public static final CommonRegistry REGISTRY = RegistryUtils.registrar(MOD_ID);
 
 	public static void onInitialize() {
 		ModSoundEvents.init();
 		ModParticleTypes.init();
-		ModBlockIds.init();
 		ModBlocks.init();
 		ModEntityTypes.init();
-		ModItemIds.init();
 		ModItems.init();
 		ModEffects.init();
 		ModPotions.init();

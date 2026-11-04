@@ -1,6 +1,6 @@
 package cc.cassian.effects.references;
 
-//? if >=26.2
+//~ if >=26.2 'cc.cassian.asphodel'->'net.minecraft'
 import net.minecraft.references.BlockItemId;
 
 import static cc.cassian.effects.util.ModUtil.create;

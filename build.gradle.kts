@@ -229,6 +229,13 @@ dependencies {
 		modCompileOnly("maven.modrinth:tiny-takeover-backport:${if (fabric) "rFelsdfF" else "5JqJpRdN"}")
 	}
 
+	modImplementation("cc.cassian.asphodel:asphodel-api-${loader}:${property("deps.asphodel_api")}+${property("deps.minecraft")}"){
+		exclude("net.fabricmc")
+	}
+	include("cc.cassian.asphodel:asphodel-api-${loader}:${property("deps.asphodel_api")}+${property("deps.minecraft")}"){
+		exclude("net.fabricmc")
+	}
+
 	// Mixin Constraints - embedded
 //	implementation("com.moulberry:mixinconstraints:1.0.9")
 //	include("com.moulberry:mixinconstraints:1.0.9")

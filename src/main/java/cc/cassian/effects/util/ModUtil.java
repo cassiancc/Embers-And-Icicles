@@ -1,7 +1,7 @@
 package cc.cassian.effects.util;
 
 import cc.cassian.effects.EmbersAndIcicles;
-//~ if >=26.2 'cc.cassian.effects.references.BlockItemId'->'net.minecraft.references.BlockItemId'
+//~ if >=26.2 'cc.cassian.asphodel'->'net.minecraft'
 import net.minecraft.references.BlockItemId;
 //? fabric {
 import net.fabricmc.loader.api.FabricLoader;
@@ -16,6 +16,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 //? if >=26.3 {
 import net.minecraft.world.level.storage.loot.predicates.LootPredicates;
@@ -30,11 +32,14 @@ import net.minecraft.core.component.predicates.EnchantmentsPredicate;
 //~ if <26.2 'predicates'->'criterion' {
 import net.minecraft.advancements.predicates.EnchantmentPredicate;
 import net.minecraft.advancements.predicates.MinMaxBounds;
+import org.jetbrains.annotations.ApiStatus;
 //~}
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.function.Function;
 
+@ApiStatus.Internal
 public class ModUtil {
 
 	private static final Identifier full = EmbersAndIcicles.of("hud/heart/burning_full");

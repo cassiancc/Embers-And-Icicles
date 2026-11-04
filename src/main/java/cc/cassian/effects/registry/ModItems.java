@@ -4,7 +4,7 @@ package cc.cassian.effects.registry;
 //import cc.cassian.effects.EmbersAndIcicles;
 //? if <26.4
 import cc.cassian.effects.item.IceBallItem;
-//~ if >=26.2 'cc.cassian.effects.references.BlockItemId'->'net.minecraft.references.BlockItemId'
+//~ if >=26.2 'cc.cassian.asphodel'->'net.minecraft'
 import net.minecraft.references.BlockItemId;
 import cc.cassian.effects.references.ModBlockItemIds;
 import cc.cassian.effects.references.ModItemIds;

@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.7]
+
+### Added
+- Updated Russian translation (thanks @stilsypups-ops!)
+
+## [1.0.6]
+
+### Fixed
+- Broken item models for Icicles and Ice Crystals.
+- Crash with certain mod blocks with layers.
+
 ## [1.0.5]
 
 ### Added

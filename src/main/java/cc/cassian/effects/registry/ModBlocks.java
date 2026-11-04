@@ -1,14 +1,14 @@
 package cc.cassian.effects.registry;
 
-//~ if >=26.2 'cc.cassian.effects.references.BlockItemId'->'net.minecraft.references.BlockItemId'
+//~ if >=26.2 'cc.cassian.asphodel'->'net.minecraft'
 import net.minecraft.references.BlockItemId;
+import cc.cassian.effects.EmbersAndIcicles;
 import cc.cassian.effects.references.ModBlockItemIds;
 import net.minecraft.world.level.block.*;
 //? if <26.4 {
 import cc.cassian.effects.block.BrittleIceBlock;
 import cc.cassian.effects.block.IceCrystalBlock;
 import cc.cassian.effects.block.IcicleBlock;
-import cc.cassian.effects.references.ModBlockIds;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -29,18 +29,7 @@ import net.minecraft.world.level.block.Blocks;
 
 public class ModBlocks {
 	//? if <26.4 {
-	//? if >26 {
-	private static final BlockBehaviour.StateArgumentPredicate<AABB> NEAR_PLANE_INTERSECTS_OUTLINE = (state, level, blockPos, nearPlaneBox) -> {
-		for (AABB outlineBox : state.getOcclusionShape().toAabbs()) {
-			if (outlineBox.move(blockPos).intersects(nearPlaneBox)) {
-				return true;
-			}
-		}
-
-		return false;
-	};
-	//?}
-	public static final Block BRITTLE_ICE = register(ModBlockIds.BRITTLE_ICE, BrittleIceBlock::new, BlockBehaviour.Properties.of()
+	public static final Block BRITTLE_ICE = register(ModBlockItemIds.BRITTLE_ICE, BrittleIceBlock::new, BlockBehaviour.Properties.of()
 			.mapColor(MapColor.ICE)
 			.friction(0.98F)
 			.strength(0.5F)
@@ -64,7 +53,7 @@ public class ModBlocks {
 			.isRedstoneConductor((state, level, pos) -> false)
 			.noOcclusion()
 	);
-	public static final Block ICICLE = register(ModBlockIds.ICICLE, IcicleBlock::new, BlockBehaviour.Properties.of()
+	public static final Block ICICLE = register(ModBlockItemIds.ICICLE, IcicleBlock::new, BlockBehaviour.Properties.of()
 			.mapColor(MapColor.COLOR_LIGHT_BLUE)
 			.forceSolidOn()
 			.instrument(NoteBlockInstrument.CHIME)
@@ -79,7 +68,7 @@ public class ModBlocks {
 	);
 
 	public static final Block PACKED_ICE_BRICKS = register(
-			ModBlockIds.PACKED_ICE_BRICKS,
+			ModBlockItemIds.PACKED_ICE_BRICKS,
 			Block::new,
 			BlockBehaviour.Properties.of()
 					.mapColor(MapColor.ICE)
@@ -93,7 +82,7 @@ public class ModBlocks {
 	public static final Block PACKED_ICE_BRICK_WALL = register(ModBlockItemIds.PACKED_ICE_BRICK_WALL, WallBlock::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS).forceSolidOn());
 	public static final Block CHISELED_PACKED_ICE = register(ModBlockItemIds.CHISELED_PACKED_ICE, Block::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE_BRICKS));
 	public static final Block SNOW_BRICKS = register(
-			ModBlockIds.SNOW_BRICKS, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).friction(0.6F).requiresCorrectToolForDrops().strength(0.6F).sound(SoundType.SNOW)
+			ModBlockItemIds.SNOW_BRICKS, Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).friction(0.6F).requiresCorrectToolForDrops().strength(0.6F).sound(SoundType.SNOW)
 	);
 	public static final Block SNOW_BRICK_SLAB = registerSlab(ModBlockItemIds.SNOW_BRICK_SLAB, SNOW_BRICKS);
 	public static final Block SNOW_BRICK_STAIRS = registerStair(ModBlockItemIds.SNOW_BRICK_STAIRS, SNOW_BRICKS);
@@ -112,37 +101,23 @@ public class ModBlocks {
 	public static final Block POLISHED_CALCITE_BRICK_WALL = registerWall(ModBlockItemIds.POLISHED_CALCITE_BRICK_WALL, POLISHED_CALCITE_BRICKS);
 
 	private static Block registerStair(final BlockItemId id, final Block base) {
-		return register(id, p -> new StairBlock(base.defaultBlockState(), p), BlockBehaviour.Properties.ofFullCopy(base)
-				//? if >26.2
-				.isViewBlocking(NEAR_PLANE_INTERSECTS_OUTLINE)
-		);
+		return EmbersAndIcicles.REGISTRY.registerStair(id, base);
 	}
 
 	private static Block registerSlab(final BlockItemId id, final Block base) {
-		return register(id, SlabBlock::new, BlockBehaviour.Properties.ofLegacyCopy(base)
-						//? if >26.2
-				.isViewBlocking(NEAR_PLANE_INTERSECTS_OUTLINE)
-		);
+		return EmbersAndIcicles.REGISTRY.registerSlab(id, base);
 	}
 
 	private static Block registerWall(final BlockItemId id, final Block base) {
-		return register(id.block(), WallBlock::new, BlockBehaviour.Properties.ofLegacyCopy(base).forceSolidOn());
-	}
-
-	private static Block register(final ResourceKey<Block> id, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
-		Block block = factory.apply(properties
-				//? if >1.21.2
-				.setId(id)
-		);
-		return Registry.register(BuiltInRegistries.BLOCK, id, block);
+		return EmbersAndIcicles.REGISTRY.registerWall(id, base);
 	}
 
 	private static Block register(final BlockItemId id, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
-		return register(id.block(), factory, properties);
+		return EmbersAndIcicles.REGISTRY.registerBlock(id, factory, properties);
 	}
 
 	private static Block register(final BlockItemId id, final BlockBehaviour.Properties properties) {
-		return register(id.block(), Block::new, properties);
+		return EmbersAndIcicles.REGISTRY.registerBlock(id, properties);
 	}
 	//?} else {
 	/*public static final Block BRITTLE_ICE = Blocks.BRITTLE_ICE;
