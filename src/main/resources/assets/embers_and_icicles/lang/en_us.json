@@ -61,5 +61,8 @@
   "block.embers_and_icicles.polished_calcite_bricks": "Polished Calcite Bricks",
   "block.embers_and_icicles.polished_calcite_slab": "Polished Calcite Slab",
   "block.embers_and_icicles.polished_calcite_stairs": "Polished Calcite Stairs",
-  "block.embers_and_icicles.polished_calcite_wall": "Polished Calcite Wall"
+  "block.embers_and_icicles.polished_calcite_wall": "Polished Calcite Wall",
+  "item.embers_and_icicles.music_disc_flurry": "Music Disc",
+  "item.embers_and_icicles.music_disc_flurry.desc": "Hyper Potions - flurry",
+  "jukebox_song.embers_and_icicles.flurry": "Hyper Potions - flurry"
 }

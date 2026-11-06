@@ -1,4 +1,12 @@
 {
+  "music_disc.flurry": {
+    "sounds": [
+      {
+        "name": "embers_and_icicles:records/flurry",
+        "stream": true
+      }
+    ]
+  },
   "block.blue_ice.break": {
     "sounds": [
       "embers_and_icicles:block/blue_ice/break1",

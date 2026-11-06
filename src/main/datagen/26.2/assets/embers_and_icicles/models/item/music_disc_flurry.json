@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/template_music_disc",
+  "textures": {
+    "layer0": "embers_and_icicles:item/music_disc_flurry"
+  }
+}

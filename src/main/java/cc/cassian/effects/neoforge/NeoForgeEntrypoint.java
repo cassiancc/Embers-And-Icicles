@@ -5,9 +5,11 @@ import cc.cassian.effects.EmbersAndIcicles;
 import cc.cassian.effects.registry.ModItems;
 import cc.cassian.effects.registry.ModPotions;
 import cc.cassian.effects.util.BrewingMix;
+import cc.cassian.effects.util.LootModifications;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.LootTableLoadEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 //? if <26.4 {
 import cc.cassian.effects.backport.FrozenCaves;
@@ -36,6 +38,11 @@ public class NeoForgeEntrypoint {
 		if (event.getRegistryKey().equals(Registries.BLOCK)) {
 			EmbersAndIcicles.onInitialize();
 		}
+	}
+
+	@SubscribeEvent
+	public static void registerLootTableModifications(LootTableLoadEvent event) {
+		LootModifications.modify(event.getKey(), event.getTable(), event.getRegistries());
 	}
 
 	//? if <26.3 {

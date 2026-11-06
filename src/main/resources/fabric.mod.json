@@ -36,6 +36,6 @@
 	],
 	"depends": {
 		"fabricloader": ">=${fabric_loader_version}",
-		"fabric-api": ">=0.19.5"
+		"fabric-api": "*"
 	}
 }

@@ -11,10 +11,7 @@ import cc.cassian.effects.references.ModItemIds;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 
 import java.util.function.Function;
@@ -47,6 +44,9 @@ public class ModItems {
 	public static final Item SNOW_BRICK_SLAB = registerBlock(ModBlockItemIds.SNOW_BRICK_SLAB, ModBlocks.SNOW_BRICK_SLAB);
 	public static final Item SNOW_BRICK_STAIRS = registerBlock(ModBlockItemIds.SNOW_BRICK_STAIRS, ModBlocks.SNOW_BRICK_STAIRS);
 	public static final Item SNOW_BRICK_WALL = registerBlock(ModBlockItemIds.SNOW_BRICK_WALL, ModBlocks.SNOW_BRICK_WALL);
+	public static final Item MUSIC_DISC_FLURRY = registerItem(
+			ModItemIds.MUSIC_DISC_FLURRY, Item::new, new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSongs.FLURRY)
+	);
 	//? if >=26 {
 	public static final Item FROSTBITE_SPAWN_EGG = registerItem(ModItemIds.FROSTBITE_SPAWN_EGG, SpawnEggItem::new,
 			new Item.Properties().spawnEgg(ModEntityTypes.FROSTBITE));

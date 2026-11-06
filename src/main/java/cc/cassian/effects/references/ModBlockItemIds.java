@@ -34,4 +34,7 @@ public class ModBlockItemIds {
 	public static final BlockItemId POLISHED_CALCITE_BRICK_STAIRS = create("polished_calcite_brick_stairs");
 	public static final BlockItemId POLISHED_CALCITE_BRICK_WALL = create("polished_calcite_brick_wall");
 
+	public static void init() {
+
+	}
 }

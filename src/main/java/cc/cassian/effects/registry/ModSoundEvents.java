@@ -1,6 +1,7 @@
 package cc.cassian.effects.registry;
 
 import cc.cassian.effects.EmbersAndIcicles;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
@@ -73,10 +74,15 @@ public class ModSoundEvents {
 	public static final SoundType BRITTLE_ICE = new SoundType(1.0F, 1.0F, BRITTLE_ICE_BREAK, BRITTLE_ICE_STEP, BRITTLE_ICE_PLACE, BRITTLE_ICE_HIT, BRITTLE_ICE_FALL);
 	public static final SoundType ICE_CRYSTAL = new SoundType(1.0F, 1.0F, ICE_CRYSTAL_BREAK, ICE_CRYSTAL_STEP, ICE_CRYSTAL_PLACE, ICE_CRYSTAL_HIT, ICE_CRYSTAL_FALL);
 	public static final SoundType ICICLE = new SoundType(1.0F, 1.0F, ICICLE_BREAK, ICICLE_STEP, ICICLE_PLACE, ICICLE_HIT, ICICLE_FALL);
+	public static final Holder<SoundEvent> MUSIC_DISC_FLURRY = registerForHolder("music_disc.flurry");
 	//?}
 
 	private static SoundEvent register(String s) {
 		return Registry.register(BuiltInRegistries.SOUND_EVENT, EmbersAndIcicles.of(s), SoundEvent.createVariableRangeEvent(EmbersAndIcicles.of(s)));
+	}
+
+	private static Holder<SoundEvent> registerForHolder(String s) {
+		return Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT, EmbersAndIcicles.of(s), SoundEvent.createVariableRangeEvent(EmbersAndIcicles.of(s)));
 	}
 
 	public static void init() {
