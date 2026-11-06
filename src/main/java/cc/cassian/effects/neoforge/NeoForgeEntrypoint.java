@@ -23,11 +23,11 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 //?}
 //? if <26.3 {
-import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
-//?}
+/^import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+^///?}
 //? if <26 {
-import net.neoforged.neoforge.event.village.WandererTradesEvent;
-//?}
+/^import net.neoforged.neoforge.event.village.WandererTradesEvent;
+^///?}
 
 @EventBusSubscriber
 public class NeoForgeEntrypoint {
@@ -39,7 +39,7 @@ public class NeoForgeEntrypoint {
 	}
 
 	//? if <26.3 {
-	@SubscribeEvent
+	/^@SubscribeEvent
 	public static void register(RegisterBrewingRecipesEvent event) {
 		for (BrewingMix addMix : BrewingMix.addMixes()) {
 			if (addMix.base().isEmpty()) {
@@ -49,7 +49,7 @@ public class NeoForgeEntrypoint {
 			}
 		}
 	}
-	//?}
+	^///?}
 
 	//? if <26.4 {
 	@SubscribeEvent
@@ -86,11 +86,11 @@ public class NeoForgeEntrypoint {
 	}
 
 	//? if <26 {
-	@SubscribeEvent
+	/^@SubscribeEvent
 	public static void addWanderingTrades(WandererTradesEvent event) {
 		event.getGenericTrades().addAll(FrozenCaves.wanderingTraderTrades());
 	}
-	//?}
+	^///?}
 	//?}
 }
 *///?}

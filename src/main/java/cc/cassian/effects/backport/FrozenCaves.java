@@ -1,6 +1,7 @@
 //? if <26.4 {
 package cc.cassian.effects.backport;
 
+import cc.cassian.asphodel.Platform;
 import cc.cassian.effects.EmbersAndIcicles;
 import cc.cassian.effects.mixin.backport.BlockBehaviourAccessor;
 import cc.cassian.effects.registry.ModItems;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.SoundType;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 //? if <26 {
@@ -48,8 +50,12 @@ public final class FrozenCaves {
 		//?} else {
 		/*Item packedIceAnchor = Items.CUT_RED_SANDSTONE_SLAB;
 		*///?}
-		return List.of(
-				new TabInsertion(CreativeModeTabs.BUILDING_BLOCKS, packedIceAnchor, Items.PACKED_ICE,
+		List<TabInsertion> tabInsertions = new ArrayList<>();
+		if (!Platform.INSTANCE.isModLoaded("windswept")) {
+			tabInsertions.add(new TabInsertion(CreativeModeTabs.BUILDING_BLOCKS, packedIceAnchor, Items.PACKED_ICE));
+		}
+		tabInsertions.addAll(List.of(
+				new TabInsertion(CreativeModeTabs.BUILDING_BLOCKS, Items.PACKED_ICE,
 						ModItems.PACKED_ICE_BRICKS,
 						ModItems.PACKED_ICE_BRICK_STAIRS,
 						ModItems.PACKED_ICE_BRICK_SLAB,
@@ -80,7 +86,8 @@ public final class FrozenCaves {
 				new TabInsertion(CreativeModeTabs.INGREDIENTS, Items.SNOWBALL, ModItems.ICE_BALL),
 				new TabInsertion(CreativeModeTabs.COMBAT, Items.SNOWBALL, ModItems.ICE_BALL),
 				new TabInsertion(CreativeModeTabs.SPAWN_EGGS, Items.DROWNED_SPAWN_EGG, ModItems.FROSTBITE_SPAWN_EGG)
-		);
+		));
+		return tabInsertions;
 	}
 
 	//? if <26 {

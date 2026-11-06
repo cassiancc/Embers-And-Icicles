@@ -1,5 +1,6 @@
-### Changed
-- Added JiJ'd Asphodel API dependency, cleaning up code significantly.
+### Added
+- Backported 26.4 feature - being on fire now counters the freezing effect similar to wearing leather armor.
 
 ### Fixed
-- Incorrect blockstates for Calcite blocks.
+- Burning heart effect now works correctly.
+- Crash with Windswpet.

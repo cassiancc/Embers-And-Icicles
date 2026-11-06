@@ -57,9 +57,15 @@ sourceSets.main {
 version = "${property("mod.version")}+${property("deps.minecraft")}-${loader}"
 base.archivesName = property("mod.id") as String
 
-//loom {
-//    accessWidenerPath = rootProject.file("src/main/resources/${property("mod.id")}.accesswidener")
-//}
+loom {
+	accessWidenerPath = if (stonecutter.eval(mcVersion,">=26.2")) {
+		rootProject.file("src/main/resources/aw/${property("mod.id")}_26_2.classtweaker")
+	} else if (stonecutter.eval(mcVersion,">=26")) {
+		rootProject.file("src/main/resources/aw/${property("mod.id")}_26_1.classtweaker")
+	} else {
+		rootProject.file("src/main/resources/aw/${property("mod.id")}_21_1.classtweaker")
+	}
+}
 
 jsonlang {
 	languageDirectories = listOf("assets/${property("mod.id")}/lang")
