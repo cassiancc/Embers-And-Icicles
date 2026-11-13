@@ -27,8 +27,7 @@ public abstract class FallingBlockEntityMixin extends Entity {
 
 	@Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getBlockState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;"))
 	private void embers$place(CallbackInfo ci) {
-		BlockState levelState = level().getBlockState(blockPosition());
-		if (EmbersAndIcicles.CONFIG.snowGravity && levelState.is(Blocks.SNOW) && getBlockState().is(Blocks.SNOW)) {
+		if (EmbersAndIcicles.CONFIG.snowGravity && getBlockState().is(Blocks.SNOW)) {
 			this.cancelDrop = true;
 		}
 	}

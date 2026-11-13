@@ -234,11 +234,16 @@ dependencies {
 	if (mcVersion == "1.21.1") {
 		modCompileOnly("maven.modrinth:tiny-takeover-backport:${if (fabric) "rFelsdfF" else "5JqJpRdN"}")
 	}
+	val asphodelApiMcVersion = if (mcVersion == "26.4") {
+		"26.4-snapshot-7"
+	} else {
+		property("deps.minecraft")
+	}
 
-	modImplementation("cc.cassian.asphodel:asphodel-api-${loader}:${property("deps.asphodel_api")}+${property("deps.minecraft")}"){
+	modImplementation("cc.cassian.asphodel:asphodel-api-${loader}:${property("deps.asphodel_api")}+$asphodelApiMcVersion"){
 		exclude("net.fabricmc")
 	}
-	include("cc.cassian.asphodel:asphodel-api-${loader}:${property("deps.asphodel_api")}+${property("deps.minecraft")}"){
+	include("cc.cassian.asphodel:asphodel-api-${loader}:${property("deps.asphodel_api")}+$asphodelApiMcVersion"){
 		exclude("net.fabricmc")
 	}
 

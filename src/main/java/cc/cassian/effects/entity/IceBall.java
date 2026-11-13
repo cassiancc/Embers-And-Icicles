@@ -88,7 +88,7 @@ public class IceBall extends ThrowableItemProjectile {
 
 	protected int getDamage(final EntityHitResult hitResult) {
 		float pow = (float)this.getDeltaMovement().length();
-		return Mth.ceil(Math.clamp(pow * 1.395F, 0.0F, 2.1474836E9F));
+		return Mth.ceil(Math.clamp(pow * 1.3F, 0.0F, 2.1474836E9F));
 	}
 
 	protected void onHit(final HitResult hitResult) {

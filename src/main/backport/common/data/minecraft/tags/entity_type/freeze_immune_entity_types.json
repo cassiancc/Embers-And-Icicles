@@ -1,8 +1,7 @@
 {
   "values": [
-    "embers_and_icicles:frostbite",
-    "minecraft:zombie",
-    "minecraft:drowned",
-    "minecraft:husk"
+    "minecraft:polar_bear",
+    "minecraft:snow_golem",
+    "#minecraft:undead"
   ]
 }

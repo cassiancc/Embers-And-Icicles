@@ -82,7 +82,7 @@ public class EmbersRecipeProvider extends FabricRecipeProvider {
 		*///?}
 
 			//? if >=26.3 {
-			new  net.fabricmc.fabric.api.datagen.v1.provider.FabricBrewingProvider(output) {
+			new net.fabricmc.fabric.api.datagen.v1.provider.FabricBrewingProvider(output) {
 				@Override
 				protected void buildMixes() {
 					for (BrewingMix addMix : BrewingMix.addMixes()) {
