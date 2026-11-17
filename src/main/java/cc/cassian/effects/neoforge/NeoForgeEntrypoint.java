@@ -25,11 +25,11 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 //?}
 //? if <26.3 {
-/^import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
-^///?}
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+//?}
 //? if <26 {
-/^import net.neoforged.neoforge.event.village.WandererTradesEvent;
-^///?}
+import net.neoforged.neoforge.event.village.WandererTradesEvent;
+//?}
 
 @EventBusSubscriber
 public class NeoForgeEntrypoint {
@@ -46,7 +46,7 @@ public class NeoForgeEntrypoint {
 	}
 
 	//? if <26.3 {
-	/^@SubscribeEvent
+	@SubscribeEvent
 	public static void register(RegisterBrewingRecipesEvent event) {
 		for (BrewingMix addMix : BrewingMix.addMixes()) {
 			if (addMix.base().isEmpty()) {
@@ -56,7 +56,7 @@ public class NeoForgeEntrypoint {
 			}
 		}
 	}
-	^///?}
+	//?}
 
 	//? if <26.4 {
 	@SubscribeEvent
@@ -70,34 +70,12 @@ public class NeoForgeEntrypoint {
 				ModEntityTypes::checkColdVariantSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 	}
 
-	@SubscribeEvent
-	public static void addToCreativeTabs(BuildCreativeModeTabContentsEvent event) {
-		for (FrozenCaves.TabInsertion insertion : FrozenCaves.tabInsertions()) {
-			if (event.getTabKey() == insertion.tab()) {
-				insertAfter(event, insertion.after(), insertion.item());
-			}
-		}
-	}
-
-	private static void insertAfter(BuildCreativeModeTabContentsEvent event, Item after, Item[] items) {
-		ItemStack afterStack = new ItemStack(after);
-		if (event.getParentEntries().contains(afterStack) && event.getSearchEntries().contains(afterStack)) {
-			for (Item item : items) {
-				event.insertAfter(afterStack, new ItemStack(item), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-			}
-		} else {
-			for (Item item : items) {
-				event.accept(item);
-			}
-		}
-	}
-
 	//? if <26 {
-	/^@SubscribeEvent
+	@SubscribeEvent
 	public static void addWanderingTrades(WandererTradesEvent event) {
 		event.getGenericTrades().addAll(FrozenCaves.wanderingTraderTrades());
 	}
-	^///?}
+	//?}
 	//?}
 }
 *///?}

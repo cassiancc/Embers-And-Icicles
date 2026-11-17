@@ -3,6 +3,7 @@ package cc.cassian.effects;
 import cc.cassian.asphodel.Platform;
 import cc.cassian.asphodel.util.CommonRegistry;
 import cc.cassian.asphodel.util.RegistryUtils;
+import cc.cassian.asphodel.events.EventDispatcher;
 //? if <26.4
 import cc.cassian.effects.backport.FrozenCaves;
 import cc.cassian.effects.config.ModConfig;
@@ -19,6 +20,7 @@ public class EmbersAndIcicles {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final ModConfig CONFIG = ModConfig.createToml(Platform.INSTANCE.getConfigDir(), "", MOD_ID, ModConfig.class);
 	public static final CommonRegistry REGISTRY = RegistryUtils.registrar(MOD_ID);
+	public static final EventDispatcher EVENTS = new EventDispatcher(MOD_ID);
 
 	public static void onInitialize() {
 		ModSoundEvents.init();

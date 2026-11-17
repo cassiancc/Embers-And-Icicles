@@ -7,8 +7,6 @@ import cc.cassian.effects.registry.ModItems;
 import cc.cassian.effects.util.BrewingMix;
 import cc.cassian.effects.util.LootModifications;
 import net.fabricmc.api.ModInitializer;
-//~ if <26 'creativetab.v1.CreativeModeTabEvents'->'itemgroup.v1.ItemGroupEvents'
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -108,14 +106,6 @@ public class FabricEntrypoint implements ModInitializer {
 				ModEntityTypes::checkColdVariantSpawnRules);
 		FrozenCaves.FROSTBITE_SPAWNS.forEach((biome, weight) ->
 				BiomeModifications.addSpawn(BiomeSelectors.includeByKey(biome), MobCategory.MONSTER, ModEntityTypes.FROSTBITE, weight, 4, 4));
-
-		for (FrozenCaves.TabInsertion insertion : FrozenCaves.tabInsertions()) {
-			//~ if <26 'CreativeModeTabEvents.modifyOutputEvent'->'ItemGroupEvents.modifyEntriesEvent'
-			CreativeModeTabEvents.modifyOutputEvent(insertion.tab()).register(event -> {
-				//~ if <26 'insertAfter'->'addAfter'
-				event.insertAfter(insertion.after(), insertion.item());
-			});
-		}
 
 		//? if <26
 		//TradeOfferHelper.registerWanderingTraderOffers(1, factories -> factories.addAll(FrozenCaves.wanderingTraderTrades()));

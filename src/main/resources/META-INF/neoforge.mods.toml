@@ -28,6 +28,13 @@ versionRange="[${minecraft}]"
 ordering="NONE"
 side="BOTH"
 
+[[dependencies.embers_and_icicles]]
+modId="asphodel_api"
+type="required"
+versionRange="[1.2.0, ]"
+ordering="NONE"
+side="BOTH"
+
 [[mixins]]
 config = "embers_and_icicles.mixins.json"
 

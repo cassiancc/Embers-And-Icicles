@@ -41,55 +41,6 @@ public final class FrozenCaves {
 			biome("snowy_slopes"), 10
 	);
 
-	public record TabInsertion(ResourceKey<CreativeModeTab> tab, Item after, Item... item) {
-	}
-
-	public static List<TabInsertion> tabInsertions() {
-		//? if >=26.2 {
-		Item packedIceAnchor = Items.SULFUR_BRICK_WALL;
-		//?} else {
-		/*Item packedIceAnchor = Items.CUT_RED_SANDSTONE_SLAB;
-		*///?}
-		List<TabInsertion> tabInsertions = new ArrayList<>();
-		if (!Platform.INSTANCE.isModLoaded("windswept")) {
-			tabInsertions.add(new TabInsertion(CreativeModeTabs.BUILDING_BLOCKS, packedIceAnchor, Items.PACKED_ICE));
-		}
-		tabInsertions.addAll(List.of(
-				new TabInsertion(CreativeModeTabs.BUILDING_BLOCKS, Items.PACKED_ICE,
-						ModItems.PACKED_ICE_BRICKS,
-						ModItems.PACKED_ICE_BRICK_STAIRS,
-						ModItems.PACKED_ICE_BRICK_SLAB,
-						ModItems.PACKED_ICE_BRICK_WALL,
-						ModItems.CHISELED_PACKED_ICE,
-						ModItems.SNOW_BRICKS,
-						ModItems.SNOW_BRICK_STAIRS,
-						ModItems.SNOW_BRICK_SLAB,
-						ModItems.SNOW_BRICK_WALL,
-						Items.CALCITE,
-						ModItems.CALCITE_PILLAR,
-						ModItems.CALCITE_STAIRS,
-						ModItems.CALCITE_SLAB,
-						ModItems.CALCITE_WALL,
-						ModItems.POLISHED_CALCITE,
-						ModItems.POLISHED_CALCITE_STAIRS,
-						ModItems.POLISHED_CALCITE_SLAB,
-						ModItems.POLISHED_CALCITE_WALL,
-						ModItems.POLISHED_CALCITE_BRICKS,
-						ModItems.POLISHED_CALCITE_BRICK_STAIRS,
-						ModItems.POLISHED_CALCITE_BRICK_SLAB,
-						ModItems.POLISHED_CALCITE_BRICK_WALL
-				),
-				new TabInsertion(CreativeModeTabs.NATURAL_BLOCKS, Items.BLUE_ICE,
-						ModItems.BRITTLE_ICE,
-						ModItems.ICICLE,
-						ModItems.ICE_CRYSTAL),
-				new TabInsertion(CreativeModeTabs.INGREDIENTS, Items.SNOWBALL, ModItems.ICE_BALL),
-				new TabInsertion(CreativeModeTabs.COMBAT, Items.SNOWBALL, ModItems.ICE_BALL),
-				new TabInsertion(CreativeModeTabs.SPAWN_EGGS, Items.DROWNED_SPAWN_EGG, ModItems.FROSTBITE_SPAWN_EGG)
-		));
-		return tabInsertions;
-	}
-
 	//? if <26 {
 	/*public static List<VillagerTrades.ItemListing> wanderingTraderTrades() {
 		return List.of(
@@ -112,6 +63,52 @@ public final class FrozenCaves {
 		}
 
 		DispenserBlock.registerProjectileBehavior(ModItems.ICE_BALL);
+		EmbersAndIcicles.EVENTS.modifyCreativeTabs(CreativeModeTabs.BUILDING_BLOCKS, event -> {
+			//? if >=26.2 {
+			Item packedIceAnchor = Items.SULFUR_BRICK_WALL;
+			//?} else {
+			/*Item packedIceAnchor = Items.CUT_RED_SANDSTONE_SLAB;
+			 *///?}
+			if (!Platform.INSTANCE.isModLoaded("windswept")) {
+				event.addAfter(packedIceAnchor.getDefaultInstance(), Items.PACKED_ICE);
+			}
+			event.addAfter(Items.PACKED_ICE,
+					ModItems.PACKED_ICE_BRICKS,
+					ModItems.PACKED_ICE_BRICK_STAIRS,
+					ModItems.PACKED_ICE_BRICK_SLAB,
+					ModItems.PACKED_ICE_BRICK_WALL,
+					ModItems.CHISELED_PACKED_ICE,
+					ModItems.SNOW_BRICKS,
+					ModItems.SNOW_BRICK_STAIRS,
+					ModItems.SNOW_BRICK_SLAB,
+					ModItems.SNOW_BRICK_WALL,
+					Items.CALCITE,
+					ModItems.CALCITE_PILLAR,
+					ModItems.CALCITE_STAIRS,
+					ModItems.CALCITE_SLAB,
+					ModItems.CALCITE_WALL,
+					ModItems.POLISHED_CALCITE,
+					ModItems.POLISHED_CALCITE_STAIRS,
+					ModItems.POLISHED_CALCITE_SLAB,
+					ModItems.POLISHED_CALCITE_WALL,
+					ModItems.POLISHED_CALCITE_BRICKS,
+					ModItems.POLISHED_CALCITE_BRICK_STAIRS,
+					ModItems.POLISHED_CALCITE_BRICK_SLAB,
+					ModItems.POLISHED_CALCITE_BRICK_WALL);
+		});
+		EmbersAndIcicles.EVENTS.modifyCreativeTabs(CreativeModeTabs.INGREDIENTS, event -> {
+				event.addAfter(Items.SNOWBALL, ModItems.ICE_BALL);
+		});
+		EmbersAndIcicles.EVENTS.modifyCreativeTabs(CreativeModeTabs.COMBAT, event -> {
+			event.addAfter(Items.SNOWBALL, ModItems.ICE_BALL);
+		});
+		EmbersAndIcicles.EVENTS.modifyCreativeTabs(CreativeModeTabs.NATURAL_BLOCKS, event -> {
+			event.addAfter(Items.BLUE_ICE,
+					ModItems.BRITTLE_ICE, ModItems.ICICLE, ModItems.ICE_CRYSTAL);
+		});
+		EmbersAndIcicles.EVENTS.modifyCreativeTabs(CreativeModeTabs.SPAWN_EGGS, event -> {
+			event.addAfter(Items.DROWNED_SPAWN_EGG, ModItems.FROSTBITE_SPAWN_EGG);
+		});
 	}
 
 	private static void setSound(final Block block, final SoundType soundType) {

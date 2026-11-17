@@ -235,7 +235,7 @@ dependencies {
 		modCompileOnly("maven.modrinth:tiny-takeover-backport:${if (fabric) "rFelsdfF" else "5JqJpRdN"}")
 	}
 	val asphodelApiMcVersion = if (mcVersion == "26.4") {
-		"26.4-snapshot-7"
+		"26.4-snapshot-8"
 	} else {
 		property("deps.minecraft")
 	}

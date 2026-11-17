@@ -15,9 +15,9 @@ import cc.cassian.effects.registry.ModParticleTypes;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 //?}
 //? if <26 {
-/^import cc.cassian.effects.client.LegacySpawnEgg;
+import cc.cassian.effects.client.LegacySpawnEgg;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-^///?}
+//?}
 
 @EventBusSubscriber(value = Dist.CLIENT)
 public class NeoForgeClientEntrypoint {
@@ -36,11 +36,11 @@ public class NeoForgeClientEntrypoint {
 	}
 
 	//? if <26 {
-	/^@SubscribeEvent
+	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		event.enqueueWork(LegacySpawnEgg::register);
 	}
-	^///?}
+	//?}
 
 	@SubscribeEvent
 	public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
